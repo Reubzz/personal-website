@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Rubik:wght@500&display=swap');
+
+header{
+    /* background-color: black !important; */
+    font-family: 'Fredoka', sans-serif;
+}
+nav{
+    display: flex;
+}
+nav ul{
+    height: 10vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav ul li{
+    list-style-type: none;
+    width: 150px;
+}
+nav ul li a{
+    color: rgba(255, 255, 255, 0.733);
+    text-decoration: none;
+    
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-item{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.navbar-item:hover{
+    color: white;
+    font-weight: bold;
+    text-shadow: -1px 2px #9198e5;
+    
+}
+
+.logo img{
+    width: 305px;
+    filter: drop-shadow(0px 0px 4px #9198e5);
+}
+.is-hidden{
+    opacity: 0;
+}
+body{
+    color: white;
+    background-color: #2f3136;
+    background-image: linear-gradient(to bottom, #e66465, #9198e5);
+    min-height: 300vh;
+    font-family: 'Rubik', sans-serif;
+}
+.main-intro{
+    font-size: 20px;
+    margin-left: 150px;
+}
+.hello{
+    /* margin-left: 150px; */
+    font-size: 30px;
+}
+.intro{
+    padding-left: 4px;
+    font-size: 25px;
+}
+footer{
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    text-decoration: none;
+}
+
+
+
+/* old */
+
+/* .navbar-item{
+    color: white;
+}
+.navbar-start{
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 70px;
+    margin-right: 20px;
+
+}
+.navbar-left-item{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar-brand{
+    margin-left: 60px;
+} */
+
+/* Nav Bar Colors - Start */
+
+
+/* .bd-navbar-item:hover{
+    border-radius:.200em;
+}
+.bd-navbar-item:hover:not(.is-active){
+    font-weight: 600;
+    color: #9198e5 !important; 
+    background-color: transparent !important
+} */
+
+
+/* Nav Bar Colors - End */
+
+/* Navbar-Mobile - Burger  - Start */
+
+/* .navbar-burger{
+    color: white;
+}
+.navbar-burger:hover{
+    border-radius: .200em;
+    color: white;
+    background-color: #485fc773;
+} */
+
+
+/* Navbar-Mobile - Burger  - End */
