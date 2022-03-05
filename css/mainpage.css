@@ -39,8 +39,11 @@ nav ul li a{
     
 }
 
-.logo img{
-    width: 305px;
+.logo-brand a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    /* width: 305px; */
     filter: drop-shadow(0px 0px 4px #9198e5);
 }
 .is-hidden{
@@ -56,14 +59,55 @@ body{
 .main-intro{
     font-size: 20px;
     margin-left: 150px;
+    margin-top: 170px;
 }
 .hello{
     /* margin-left: 150px; */
     font-size: 30px;
+    display: flex;
 }
 .intro{
     padding-left: 4px;
     font-size: 25px;
+}
+.logo-slide{
+    margin-left: 15px;
+    
+}
+.logo-slide{
+    position: relative;
+    transform: translateY(0);
+    opacity: 1;
+    transition: 2s all ease;
+    font-family: 'Fredoka', sans-serif;
+}
+/* .reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+} */
+.logo-slide:hover{
+    /* transform: translateY(-250px) translateX(95px); */
+    font-size: 25px;
+    opacity: 1;
+    animation: logo-slide-anim 3s backwards;
+}
+@keyframes logo-slide-anim {
+    0%{
+        font-size: 30px;
+        font-family: 'Fredoka', sans-serif;
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    85%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(-271px) translateX(145px);
+        font-size: 19px;
+        font-family: 'Fredoka', sans-serif;
+    }
 }
 footer{
     text-align: center;
