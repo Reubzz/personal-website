@@ -1,0 +1,20 @@
+{
+    "intro": "<p>I am a Student and a Self taught Programmer. Based in Mumbai, India.<br/>Worked on multiple multifunction Chat Bots for <abbr title=\"Discord is a Chat App which allows Users to create Bots that can respond to Commands and do certain functions.\">Discord</abbr>.<br/>Currently learning Web Development, C++ and Java. Interested to Deep Dive into the world of Programming and create apps that make life easier. Aside from Programming, I like to play Games and Editing during my free time.</p>",
+    "about": [
+        {
+            "title": "2019",
+            "description": "10th Grade - St. Joseph's School. <br/>Malad, Mumbai, India."
+        },
+        {
+            "title": "2021",
+            "description": "Science - Bifocal (Electrical Maintenence)<br/>12th Grade - PACE Junior Science College.<br/>Andheri, Mumbai, India."
+        },
+        {
+            "title": "Current",
+            "description": "BSc. IT<br/>Graduate - St. Andrews College of Science.<br/>Bandra, Mumbai, India."
+        }
+    ]
+    
+    
+
+}
