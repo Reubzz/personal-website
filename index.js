@@ -6,11 +6,13 @@ const mongoose = require('mongoose')
 
 require("dotenv").config();
 
-const app = express();
 let cache = apicache.middleware;
 const port = process.env.PORT;
 const mongooseURI = process.env.MONGOOSEURI;
 
+const app = express();
+
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use('/', require(path.join(__dirname, '/routes/shortlinks')))
 

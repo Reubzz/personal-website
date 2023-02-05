@@ -295,3 +295,23 @@ footer {
     text-decoration: none;
     color: #9198e5;
 }
+
+@media screen and (max-width: 1023px) {
+    .navbar {
+        display: flex;
+        justify-content: center;
+    }
+    .navbar-start {
+        display: none;
+    }
+    .navbar-end {
+        display: none;
+    }
+    .navbar-center {
+        display: flex;
+        order: 1;
+    }
+    body {
+        overflow: hidden;
+    }
+}
