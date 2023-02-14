@@ -1,3 +1,9 @@
+/** Development Mode */
+
+const devMode = false
+
+/** Development Mode - true or false */
+
 const express = require("express");
 const path = require("path");
 const apicache = require("apicache");
@@ -49,6 +55,12 @@ mongoose.connect(mongooseURI, {
     .then(() => console.log("Connected to DB"))
     .catch((err) => console.log(err));
 
-app.listen(port, () =>
-    console.log(`App Listening at http://localhost:${port}`)
-);
+if (devMode == true) {
+    app.listen(port, () =>
+        console.log(`App Listening at http://localhost:${port}`)
+    );
+} else {
+    app.listen(port, () =>
+        console.log(`App Listening at http://${config.domain}`)
+    );
+}
