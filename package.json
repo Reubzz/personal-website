@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Personal Website - https://www.reubz.tk",
   "main": "index.js",
   "scripts": {
