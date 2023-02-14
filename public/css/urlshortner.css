@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+
+:root {
+    --main-bg-color: #232529;
+    --secondary-bg-color: #2f3136;
+    --white-smoked: #BCBCBC;
+    --green: #48C78E;
+    --blue: #445DDE;
+    --lblue: #9198e5;
+
+    --text-white: #ffffff;
+    --text-grey: #A5A1A1;
+    --text-dgrey: #34363F;
+    --text-black: #2B2C31;
+
+    --pink-lighter: #FA7268;
+    --pink-light: #F16367;
+    --pink-dark: #E85467;
+    --pink-darker: #DE4467;
+
+    --font-fredoka: 'Fredoka', sans-serif;
+    --font-montserrat: 'montserrat alternates', sans-serif;
+    --font-nunito: 'Nunito';
+
+}
+
+::-webkit-scrollbar-track {
+	border: 1px solid black;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	
+	background-color: var(--main-bg-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+.nunito {
+    font-family: var(--font-nunito);
+}
+
+.title {
+    color: var(--text-white);
+    text-decoration: none;
+    text-align: center;
+    font-size: 40px;
+}
+
+nav {
+    height:60px;
+    width: 100%;
+    margin: 0;
+    /* background-color: #232529; */
+    background-color: transparent;
+    display: flex;
+    position: fixed top;
+    font-family: 'Fredoka', sans-serif;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-start {
+    display: flex;
+    order: 1;
+}
+.navbar-center {
+    display: flex;
+    order: 2;
+}
+.navbar-end {
+    display: flex;
+    order: 3;
+}
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+.navbar li {
+    width: 150px;
+    /* padding: 10px; */
+    
+}
+.navbar-item {
+    text-decoration: none;
+    color: #ffffffbb;
+}
+.navbar-item:hover{
+    color: white;
+    font-weight: bold;
+    text-shadow: -1px 2px #9198e5; 
+}
+.logo-brand a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    /* width: 305px; */
+    filter: drop-shadow(0px 0px 4px #9198e57b);
+}
+
+/* Main Section */
+
+.spacer {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 1920/215;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url('/Assets/imgs/waves1.png');
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+
+.section1 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--pink-darker);
+}
+.form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    color: whitesmoke;
+    /* align-items: center; */
+}
+
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.form { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.labels {
+    font-family: 'montserrat alternates';
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px;
+}
+.spacebar {
+    padding: 15px;
+}
+
+.input-text {
+    width: 400px;
+    /* border-radius: 10px; */
+    border-color: transparent;
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 0px 10px 10px 0px;
+}
+.input-text:hover {
+    border-color: var(--lblue);
+    filter: drop-shadow(0px 0px 4px #9198e5);
+}
+
+.input-text:focus {
+    border-color: var(--blue);
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.input-addon {
+    vertical-align: middle;
+    display: table-cell;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-family: var(--font-montserrat);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0px 0px 10px;
+
+}
+
+.radio {
+	background: #eeeeeed8;
+	/* padding: 4px; */
+	border-radius: 5px;
+    border: 1px solid #ccc;
+	/* box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3), 0 0 0 3px rgba(185, 185, 185, 0.3); */
+	position: relative;
+    width: max-content;
+    height: 40px;
+}
+
+.radio input {
+	width: auto;
+	height: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 2px;
+	padding: 12px 8px;
+    margin: 0;
+    color: var(--text-dgrey);
+	font-size: 14px;
+    font-family: var(--font-montserrat);
+    text-align: center;
+    vertical-align: baseline;
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	background-image: linear-gradient(180deg, var(--green), #74bbad);
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+#submit-btn {
+    border-radius: 5px;
+    border-color: transparent;
+    margin: 20px;
+    background-color: var(--green);
+    font-family: var(--font-nunito);
+    font-size: 20px;
+    color: var(--text-white);
+    width: 100px;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    cursor: pointer;
+}
+
+.short-link {
+    font-family: var(--font-nunito);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: wavy;
+}
+
+.copy-btn {
+    font-family: var(--font-nunito);
+    font-size: 20px;
+    color: var(--text-white);
+    background-color: var(--green);
+    border-radius: 10px;
+    padding: 0 20px;
+    margin: 10px;
+    border-color: transparent;
+}
+
+.copy-btn:hover {
+    cursor: pointer;
+}
+
+.error {
+    background-color: #E85467aa;
+    border: 1px solid var(--pink-dark);
+    border-radius: 5px;
+    padding: 10px 80px;
+}
+
+.error-details { 
+    font-family: var(--font-nunito);
+    font-size: 18px;
+    color: var(--text-white);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* All Links Section */
+#all-links {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center !important;
+}
+.alink-card {
+    width: fit-content;
+    background-color: var(--secondary-bg-color);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+.alinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 0 2 0px;
+    gap: 0px;
+}
+.alink-card button {
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: #a5a1a16b;
+    color: var(--text-white);
+    padding: 5px 10px;
+    margin: 3px;
+    order: 2;
+    height: 30px;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.buttons * {
+    cursor: pointer;
+}
+.alink-customurl {
+    font-family: var(--font-nunito);
+    font-size: 20px;
+    color: var(--text-white);
+}
+.alink {
+    margin: 0;
+}
+.alink-href {
+    font-family: var(--font-nunito);
+    font-size: 15px;
+    color: var(--white-smoked);
+}
+/* Footer */
+
+.dark-small-line {
+    width: 700px;
+    height: 5px;
+    border-radius: 50px;
+    border-color: #2f3136;
+    align-items: center;
+    color: #2f3136;
+}
+footer {
+    margin-top: 100px;
+}
+
+.contact {
+    text-align: center;
+}
+.contact h1 {
+    font-family: 'Nunito';
+    font-size: 30px;
+    color: white;
+}
+.links {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    gap: 10px;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    gap: 10px;
+}
+
+.link {
+
+    text-decoration: none;
+    color: white;
+    font-family: 'montserrat alternates';
+    font-size: 18px;
+    background-color: #2f3136;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact i {
+    display: flex;
+    padding: 5px;
+}
+.copyright {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Nunito';
+    font-size: 16px;
+    color: white;
+}
+
+.copyright a {
+    text-decoration: none;
+    color: #9198e5;
+}

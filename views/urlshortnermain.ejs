@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner</title>
+
+    <link rel="stylesheet" href="/css/urlshortner.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar navbar-start">
+            <ul>
+                <li><a href="#projects" class="navbar-item"><i class="fa-solid fa-briefcase"></i> Projects</a></li>
+            </ul>
+        </div>
+        <div class="navbar logo-brand navbar-center iss-hidden">
+            <a href="/" class="navbar-item">
+                <h1>Reuben George</h1>
+            </a>
+        </div>
+        <div class="navbar navbar-end">
+            <ul>
+                <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="spacer layer1"></div>
+    <section id="create-link-section" class="section1">
+        <div class="form-section">
+            <form method="post" action="/urlshortner" class="form">
+                <label class="labels" for="linkName">Destination URL:</label>
+                <div class="input-group">
+                    <span class="input-addon">Long Url</span>
+                    <input class="input-text" required placeholder="Enter Link Here" type="url" name="href" id="href"
+                        pattern="(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)">
+                </div>
+                <div class="spacebar"></div>
+                <label class="labels" for="endPointName">Custom Endpoint: </label>
+                <div class="input-group">
+                    <span class="input-addon">https://<%=domain%>/</span>
+                    <input class="input-text" required placeholder="Enter Short Name" type="text" name="slug" id="slug"
+                        pattern="[0-9a-zA-Z]{4,}">
+                </div>
+                <div class="spacebar"></div>
+                <label class="labels" for="radio">Expires In: </label>
+                <div class="radio">
+
+                    <input label="12 Hours" type="radio" id="12-Hours" name="expiryTime" value="12-Hours">
+                    <input label="1 Day" type="radio" id="1-Day" name="expiryTime" value="1-Day" checked>
+                    <input label="3 Days" type="radio" id="3-Day" name="expiryTime" value="3-Day">
+                    <input label="1 Week" type="radio" id="1-Week" name="expiryTime" value="1-Week">
+                    <input label="2 Weeks" type="radio" id="2-Week" name="expiryTime" value="2-Week">
+                    <input label="1 Month" type="radio" id="1-Month" name="expiryTime" value="1-Month">
+                    <input label="Never" type="radio" id="null" name="expiryTime" value="null">
+                </div>
+                <input id="submit-btn" type="submit" value="Submit">
+
+            </form>
+
+
+        </div>
+    </section>
+    <div class="spacer layer1 rotate"></div>
+
+    <section class="section2">
+        <h1 class="title nunito">All Links</h1>
+
+        <div id="all-links" class="">
+
+            <% allLinks.forEach(function(link){ %>
+                <div class="alink-card">
+                    <div class="alinks">
+                        <h3 class="alink-customurl alink">
+                            <%=domain%>/<%=link.slug%>
+                        </h3>
+                        <p class="alink-href alink">
+                            <%=link.href%>
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <!-- <button class="alink-disable"><i class="fa-regular fa-eye-slash"></i></button> -->
+                        <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
+                                class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </section>
+
+
+
+
+
+    <footer>
+        <hr class="dark-small-line">
+        <div id="contact" class="contact">
+            <h1 class="title">Contact Me</h1>
+            <div class="links">
+                <div class="left-container">
+                    <a class="link" href="/email"><i class="fa-regular fa-envelope"></i>Email</a>
+                    <a class="link" href="/twitter"><i class="fa-brands fa-twitter"></i>Twitter</a>
+
+                </div>
+                <div class="right-container">
+                    <a class="link" href="/discord"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <a class="link" href="/instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">
+            © 2022 by
+            <a href="/github" target="_blank">Reuben George</a>.
+        </p>
+
+    </footer>
+
+
+    <script src="/js/urlshortner.js"></script>
+    <script src="https://kit.fontawesome.com/4d3f484b6f.js" crossorigin="anonymous"></script>
+    <% if(error==1) { %>
+        <script>
+            alert("Short Name already in use!")
+        </script>
+        <% } %>
+
+</body>
+
+</html>

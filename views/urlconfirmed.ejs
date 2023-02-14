@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner</title>
+
+    <link rel="stylesheet" href="/css/urlshortner.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar navbar-start">
+            <ul>
+                <li><a href="#projects" class="navbar-item"><i class="fa-solid fa-briefcase"></i> Projects</a></li>
+            </ul>
+        </div>
+        <div class="navbar logo-brand navbar-center iss-hidden">
+            <a href="/" class="navbar-item">
+                <h1>Reuben George</h1>
+            </a>
+        </div>
+        <div class="navbar navbar-end">
+            <ul>
+                <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="spacer layer1"></div>
+    <section id="create-link-section" class="section1">
+        <div class="form-section">
+            <h1 class="title nunito">Here's Your Shortened Link</h1>
+            <a class="short-link" href="https://<%=domain%>/<%=data.slug%>">https://<%=domain%>/<%=data.slug%>
+            </a>
+            <button class="copy-btn" onclick="copyText()">Copy Text <i class="fa-regular fa-copy"></i></button>
+            <input class="hidden" type="text" value="https://<%=domain%>/<%=data.slug%>" id="myInput">
+
+        </div>
+    </section>
+    <div class="spacer layer1 rotate"></div>
+
+    <section class="section2">
+        <h1 class="title nunito">All Links</h1>
+
+
+        <div id="all-links" class="">
+
+            <% allLinks.forEach(function(link){ %>
+                <div class="alink-card">
+                    <div class="alinks">
+                        <h3 class="alink-customurl alink">
+                            <%=domain%>/<%=link.slug%>
+                        </h3>
+                        <p class="alink-href alink">
+                            <%=link.href%>
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <!-- <button class="alink-disable"><i class="fa-regular fa-eye-slash"></i></button> -->
+                        <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
+                                class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+    </section>
+
+
+
+
+
+    <footer>
+        <hr class="dark-small-line">
+        <div id="contact" class="contact">
+            <h1 class="title">Contact Me</h1>
+            <div class="links">
+                <div class="left-container">
+                    <a class="link" href="/email"><i class="fa-regular fa-envelope"></i>Email</a>
+                    <a class="link" href="/twitter"><i class="fa-brands fa-twitter"></i>Twitter</a>
+
+                </div>
+                <div class="right-container">
+                    <a class="link" href="/discord"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <a class="link" href="/instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">
+            © 2022 by
+            <a href="/github" target="_blank">Reuben George</a>.
+        </p>
+
+    </footer>
+
+
+    <script src="/js/urlshortner.js"></script>
+    <script>
+        function copyText() {
+            let copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/4d3f484b6f.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
