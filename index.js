@@ -32,7 +32,7 @@ app.get("/discord", (req, res) => {
     res.redirect(config.socials.discord);
 });
 app.get("/email", (req, res) => {
-    res.redirect(config.socials.email);
+    res.redirect(config.email);
 });
 app.get("/github", (req, res) => {
     res.redirect(config.socials.github);
