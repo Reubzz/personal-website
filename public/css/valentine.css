@@ -3,6 +3,7 @@
 body {
   background-color: #232529;
   /* margin-top: 140px !important; */
+  overflow: hidden;
 }
 
 p {
@@ -21,6 +22,12 @@ p {
   width: 25%;
   border-radius: 10px;
 }
+.buttons-container {
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 .buttons {
   padding: 5px;
   border-radius: 8px;
@@ -31,17 +38,18 @@ p {
 }
 #btn2 {
   position: fixed;
-  top: 70%;
-  left: 55%;
-  transform: translate(-50%, -50%);
+  /* top: 70%;
+  left: 55%; */
+  transform: translate(-60%, 0%);
   background-color: #48c78e;
   color: white;
 }
 
 #btn1 {
   position: absolute;
-  left: 39%;
-  top: 68%;
+  /* left: 39%;
+    top: 68%; */
+  transform: translate(60%, 0%);
   background-color: #ed4245;
   color: white;
 }
@@ -70,13 +78,14 @@ p {
     border: 2px aliceblue;
   }
   #btn2 {
-    top: 70%;
-    left: 55%;
-    transform: translate(-60%, 0%);
+    /* top: 70%;
+    left: 55%; */
+    transform: translate(0%, 50%);
   }
   #btn1 {
     position: absolute;
-    top: 75%;
-    left: 37%;
+    /* top: 75%;
+    left: 37%; */
+    transform: translate(0%, 180%);
   }
 }
