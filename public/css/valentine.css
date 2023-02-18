@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
 
 body {
-  background-color: #232529;
-  /* margin-top: 140px !important; */
   overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/Assets/svgs/bg.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #232529;
+  background-attachment: fixed;
 }
 
 p {
@@ -58,6 +64,8 @@ p {
   body {
     background-color: #232529;
     margin-top: 140px !important;
+    background-position: inherit;
+    background-size: auto;
   }
   p {
     font-size: 40px;
