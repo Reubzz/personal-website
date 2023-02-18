@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
 
 body {
@@ -16,11 +17,12 @@ body {
 }
 
 .footer {
+  text-align: center;
   margin-top: 60px;
 }
 .copyright {
-  font-size: 16px !important;
-  font-family: "Nunito";
+  font-size: 14px !important;
+  font-family: "Montserrat Alternates";
   color: white;
 }
 .copyright a {
@@ -28,7 +30,7 @@ body {
   color: #9198e5;
 }
 
-p {
+.title {
   text-align: center;
   font-size: 32px;
   font-family: "Nunito", sans-serif;
@@ -82,7 +84,7 @@ p {
   .footer {
     margin: 0;
   }
-  p {
+  .title {
     font-size: 40px;
     font-family: "Nunito", sans-serif;
   }
