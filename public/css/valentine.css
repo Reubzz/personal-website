@@ -52,7 +52,7 @@ p {
     margin-top: 140px !important;
   }
   p {
-    font-size: 70px;
+    font-size: 40px;
     font-family: "Nunito", sans-serif;
   }
   .gifimag {
@@ -64,19 +64,19 @@ p {
     padding: 5px;
     border-radius: 8px;
     width: 30%;
-    font-size: 40px;
+    font-size: 20px;
     text-decoration: none;
     font-family: "Nunito";
     border: 2px aliceblue;
   }
   #btn2 {
-    top: 55%;
+    top: 70%;
     left: 55%;
     transform: translate(-60%, 0%);
   }
   #btn1 {
     position: absolute;
-    top: 60%;
+    top: 75%;
     left: 37%;
   }
 }
