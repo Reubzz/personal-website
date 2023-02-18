@@ -2,14 +2,30 @@
 
 body {
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+
   background-image: url("/Assets/svgs/bg.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: #232529;
   background-attachment: fixed;
+}
+.main {
+  width: 100vw;
+  height: 80vh;
+}
+
+.footer {
+  margin-top: 60px;
+}
+.copyright {
+  font-size: 16px !important;
+  font-family: "Nunito";
+  color: white;
+}
+.copyright a {
+  text-decoration: none !important;
+  color: #9198e5;
 }
 
 p {
@@ -44,8 +60,6 @@ p {
 }
 #btn2 {
   position: fixed;
-  /* top: 70%;
-  left: 55%; */
   transform: translate(-60%, 0%);
   background-color: #48c78e;
   color: white;
@@ -53,8 +67,6 @@ p {
 
 #btn1 {
   position: absolute;
-  /* left: 39%;
-    top: 68%; */
   transform: translate(60%, 0%);
   background-color: #ed4245;
   color: white;
@@ -66,6 +78,9 @@ p {
     margin-top: 140px !important;
     background-position: inherit;
     background-size: auto;
+  }
+  .footer {
+    margin: 0;
   }
   p {
     font-size: 40px;
@@ -92,8 +107,7 @@ p {
   }
   #btn1 {
     position: absolute;
-    /* top: 75%;
-    left: 37%; */
-    transform: translate(0%, 180%);
+
+    transform: translate(0%, 210%);
   }
 }
