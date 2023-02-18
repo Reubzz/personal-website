@@ -1,5 +1,5 @@
 # Personal Website
 
-Personal Portfolio Website Featuring Past Projects, CV, etc. 
+Personal Portfolio Website Featuring Past Projects, CV, etc.
 
-🔗 [reubz.tk](https://reubz.tk)
+🔗 [reubz.io](https://reubz.io)
