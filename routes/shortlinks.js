@@ -11,7 +11,7 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 require('dotenv').config();
 let cache = apicache.middleware
 
-router.get('/urlshortner', async (req, res) => {
+router.get('/', async (req, res) => {
 
     const links = await shortlinksdb.find();
 
@@ -19,7 +19,7 @@ router.get('/urlshortner', async (req, res) => {
 
 })
 
-router.post('/urlshortner', urlEncodedParser, async (req, res) => {
+router.post('/', urlEncodedParser, async (req, res) => {
 
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
@@ -57,7 +57,7 @@ router.post('/urlshortner', urlEncodedParser, async (req, res) => {
     res.status(200).render('urlconfirmed', { data: req.body, domain: config.domain, allLinks: links })
 })
 
-router.get('/urlshortner/delete/:id', async (req, res) => {
+router.get('/delete/:id', async (req, res) => {
     shortlinksdb.deleteOne({ id: req.params.id }).then(function () {
         res.redirect("/urlshortner");
     }).catch(function (error) {
@@ -65,12 +65,9 @@ router.get('/urlshortner/delete/:id', async (req, res) => {
     });
 })
 
-router.get('/:slug', async (req, res) => {
-    const check = await shortlinksdb.findOne({ slug: req.params.slug })
-    if (!check) return res.status(404).sendFile(path.join(__dirname, '../pages', 'error', '404.html'));
-    else { res.status(302).redirect(check.href); }
-})
-
+// actual url redirecter shifted to index.js as it won't work if placed here. 
+// due to Routers - if url redirecter is placed here the link would be --> reubz.io/urlshorter/<slug_here>
+// to avoid this it is placed in index.js, hence now the link works as intended --> reubz.io/<slug_here>
 
 function getUniqueId() {
     return Math.random().toString(36).slice(2);

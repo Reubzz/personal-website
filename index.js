@@ -1,6 +1,6 @@
 /** Development Mode */
 
-const devMode = false
+const devMode = true
 
 /** Development Mode - true or false */
 
@@ -9,6 +9,8 @@ const path = require("path");
 const apicache = require("apicache");
 const config = require("./config.json");
 const mongoose = require('mongoose')
+const shortlinksdb = require('./models/schemas/shortlinks')
+
 
 require("dotenv").config();
 
@@ -20,7 +22,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-app.use('/', require(path.join(__dirname, '/routes/shortlinks')))
+app.use('/urlshortner', require(path.join(__dirname, '/routes/shortlinks')))
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
@@ -28,6 +30,9 @@ app.get("/", (req, res) => {
 app.get("/home", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
 });
+app.get("/valentine", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "valentine", "valentine.html"))
+})
 app.get("/instagram", (req, res) => {
     res.redirect(config.socials.instagram);
 });
@@ -43,6 +48,13 @@ app.get("/email", (req, res) => {
 app.get("/github", (req, res) => {
     res.redirect(config.socials.github);
 });
+
+// For Url Shortner to work
+app.get("/:slug", async (req, res) => {
+    const check = await shortlinksdb.findOne({ slug: req.params.slug })
+    if (!check) return res.status(404).sendFile(path.join(__dirname, '../pages', 'error', '404.html'));
+    else { res.status(302).redirect(check.href); }
+})
 
 app.get("*", (req, res) => {
     res.status(404).sendFile(path.join(__dirname, "pages", "error", "404.html"));
