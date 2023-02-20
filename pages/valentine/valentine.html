@@ -31,10 +31,15 @@
     </div>
 
     <div class="buttons-container">
-      <button class="buttons" id="btn2">YES BBY!</button>
+      <button class="buttons" id="btn2" onclick="openModal()">YES BBY!</button>
       <button class="buttons" id="btn1">NO</button>
 
     </div>
+
+    <dialog id="dialog">
+      <p>YEYY THANK U, I LOVE U!</p>
+      <button onclick="closeModal()" class="right">Close &lt;3</button>
+    </dialog>
   </div>
 
 
@@ -45,23 +50,9 @@
     </p>
   </footer>
 
-  <script>
-    const button2 = document.getElementById('btn1');
-    button2.addEventListener('mouseover', function () {
-      this.style.left = `${Math.random() * 70}%`;
-      this.style.top = `${Math.random() * 70}%`;
-    });
-    button2.addEventListener('click', function () {
-      this.style.left = `${Math.random() * 80}%`;
-      this.style.top = `${Math.random() * 80}%`;
-    });
-
-    document.getElementById('btn2').addEventListener('click', function () {
-      alert('YEYY THANK U, I LOVE U');
-    });
-  </script>
-
+  <script src="/js/valentine.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
   <script>
     AOS.init({
       duration: 1000,
