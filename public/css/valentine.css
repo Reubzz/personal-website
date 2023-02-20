@@ -74,6 +74,31 @@ body {
   color: white;
 }
 
+#dialog {
+  width: max-content;
+  height: max-content;
+  padding: 40px;
+  align-items: center;
+  text-align: center;
+  font-family: "Nunito";
+  font-size: 30px;
+  background-color: #2f3136;
+  color: white;
+  border-radius: 10px;
+  border: 1px #232529;
+}
+#dialog button {
+  width: max-content;
+  height: 20%;
+  padding: 5px 10px;
+  font-family: "Nunito";
+  font-size: 16px;
+  color: white;
+  background-color: #48c78e;
+  border: 2px #35c685;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 1023px) {
   body {
     background-color: #232529;
@@ -111,5 +136,18 @@ body {
     position: absolute;
 
     transform: translate(0%, 210%);
+  }
+  #dialog {
+    width: max-content;
+    height: max-content;
+    padding: 40px;
+    font-size: 18px;
+  }
+  #dialog button {
+    width: max-content;
+    height: 20%;
+    font-size: 14px;
+    color: white;
+    border-radius: 5px;
   }
 }
