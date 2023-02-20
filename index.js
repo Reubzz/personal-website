@@ -30,8 +30,15 @@ app.get("/", (req, res) => {
 app.get("/home", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
 });
+
+// Valentines Fun Page
 app.get("/valentine", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "valentine", "valentine.html"))
+})
+
+// Atiya Birthday
+app.get("/atiya", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "atiya", "index.html"));
 })
 app.get("/instagram", (req, res) => {
     res.redirect(config.socials.instagram);
