@@ -225,7 +225,7 @@ const animationTimeline = () => {
                 color: "#ff69b4",
                 ease: Expo.easeOut,
             },
-            0.1,
+            0.2,
             "party"
         )
         .from(
