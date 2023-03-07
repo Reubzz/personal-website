@@ -31,9 +31,16 @@ app.get("/home", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
 });
 
-// Valentines Fun Page
+// Fun Pages
+
+// 1 - Valentines day 
 app.get("/valentine", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "valentine", "valentine.html"))
+    res.sendFile(path.join(__dirname, "pages", "Fun Pages", "valentine", "valentine.html"))
+})
+
+// 2 - To be honest I love seeing you 
+app.get("/honestly", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "fun pages", "to be honest", "index.html"))
 })
 
 // Atiya Birthday
@@ -59,7 +66,7 @@ app.get("/github", (req, res) => {
 // For Url Shortner to work
 app.get("/:slug", async (req, res) => {
     const check = await shortlinksdb.findOne({ slug: req.params.slug })
-    if (!check) return res.status(404).sendFile(path.join(__dirname, '../pages', 'error', '404.html'));
+    if (!check) return res.status(404).sendFile(path.join(__dirname, 'pages', 'error', '404.html'));
     else { res.status(302).redirect(check.href); }
 })
 
