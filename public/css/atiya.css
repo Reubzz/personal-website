@@ -4,6 +4,8 @@ html {
   box-sizing: border-box;
   color: white;
   background-color: #232529;
+  background-image: url("/Assets/imgs/bg.jpg");
+  background-size: cover;
 }
 
 body {
@@ -139,14 +141,7 @@ body {
   display: inline-block;
   max-width: 45%;
   height: auto;
-}
-
-.six .hat {
-  position: absolute;
-  width: 80px;
-  top: -35px;
-  left: 41.5%;
-  /* transform: scale(0.1); */
+  border-radius: 50%;
 }
 
 .baloons img {
@@ -282,6 +277,20 @@ body {
   left: 0;
   border-radius: 4px;
   animation: jump7456 0.5s linear infinite;
+}
+
+.footer {
+  /* display: block; */
+  z-index: -1;
+  text-align: center;
+  /* margin: 50px; */
+}
+.footer p {
+  font-size: 16px !important;
+}
+footer a {
+  color: #5b7cff;
+  text-decoration: none;
 }
 
 @keyframes jump7456 {

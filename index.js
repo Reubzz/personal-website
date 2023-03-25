@@ -45,7 +45,7 @@ app.get("/honestly", (req, res) => {
 
 // Atiya Birthday
 app.get("/atiya", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "atiya", "index.html"));
+    res.sendFile(path.join(__dirname, "pages", "atiya", "atiya.html"));
 })
 app.get("/instagram", (req, res) => {
     res.redirect(config.socials.instagram);
