@@ -1,6 +1,6 @@
 /** Development Mode */
 
-const devMode = true
+const devMode = false
 
 /** Development Mode - true or false */
 
