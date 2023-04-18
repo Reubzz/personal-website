@@ -1,6 +1,6 @@
 /** Development Mode */
 
-const devMode = true
+const devMode = false
 
 /** Development Mode - true or false */
 
@@ -35,7 +35,7 @@ app.get("/home", (req, res) => {
 
 // 1 - Valentines day 
 app.get("/valentine", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "Fun Pages", "valentine", "valentine.html"))
+    res.sendFile(path.join(__dirname, "pages", "fun pages", "valentine", "valentine.html"))
 })
 
 // 2 - To be honest I love seeing you 
