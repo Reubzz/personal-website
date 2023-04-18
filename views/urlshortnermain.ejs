@@ -21,23 +21,37 @@
 </head>
 
 <body>
-    <nav>
-        <div class="navbar navbar-start">
-            <ul>
-                <li><a href="#projects" class="navbar-item"><i class="fa-solid fa-briefcase"></i> Projects</a></li>
-            </ul>
-        </div>
-        <div class="navbar logo-brand navbar-center iss-hidden">
-            <a href="/" class="navbar-item">
-                <h1>Reuben George</h1>
-            </a>
-        </div>
-        <div class="navbar navbar-end">
-            <ul>
-                <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="navbar navbar-start">
+                <ul>
+                    <li><a href="/" class="navbar-item"><i class="fa-solid fa-home"></i> Home</a></li>
+                </ul>
+            </div>
+            <div class="navbar logo-brand navbar-center iss-hidden">
+                <a href="/" class="navbar-item">
+                    <h1>Reuben George</h1>
+                </a>
+            </div>
+            <div class="navbar navbar-end">
+                <ul>
+                    <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+            <div id="hamburger-menu" onclick="openMobileMenu(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <ul class="mobile-menu">
+                    <li><a class="navbar-item" href="/"><i class="fa-solid fa-home"></i> Home</a></li>
+                    <li><a class="navbar-item" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+
 
     <div class="spacer layer1"></div>
     <section id="create-link-section" class="section1">
@@ -52,12 +66,14 @@
                 <div class="spacebar"></div>
                 <label class="labels" for="endPointName">Custom Endpoint: </label>
                 <div class="input-group">
-                    <span class="input-addon">https://<%=domain%>/</span>
+                    <span class="input-addon">
+                        <%=domain%>/
+                    </span>
                     <input class="input-text" required placeholder="Enter Short Name" type="text" name="slug" id="slug"
                         pattern="[0-9a-zA-Z]{4,}">
                 </div>
                 <div class="spacebar"></div>
-                <label class="labels" for="radio">Expires In: </label>
+                <label class="labels">Expires In: </label>
                 <div class="radio">
 
                     <input label="12 Hours" type="radio" id="12-Hours" name="expiryTime" value="12-Hours">
@@ -68,6 +84,20 @@
                     <input label="1 Month" type="radio" id="1-Month" name="expiryTime" value="1-Month">
                     <input label="Never" type="radio" id="null" name="expiryTime" value="null">
                 </div>
+                <div class="dropdown">
+
+                    <select name="expiry" id="expiry">
+                        <option label="12 Hours" id="12-Hours" name="expiryTime" value="12-Hours">
+                        <option label="1 Day" id="1-Day" name="expiryTime" value="1-Day" checked>
+                        <option label="3 Days" id="3-Day" name="expiryTime" value="3-Day">
+                        <option label="1 Week" id="1-Week" name="expiryTime" value="1-Week">
+                        <option label="2 Weeks" id="2-Week" name="expiryTime" value="2-Week">
+                        <option label="1 Month" id="1-Month" name="expiryTime" value="1-Month">
+                        <option label="Never" id="null" name="expiryTime" value="null">
+
+                    </select>
+                </div>
+                <div class="spacebar"></div>
                 <input id="submit-btn" type="submit" value="Submit">
 
             </form>
