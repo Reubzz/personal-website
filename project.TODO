@@ -5,3 +5,19 @@ Make Projects directory
     - Make a projects landing page (ejs for easier addition of projects later)
     - make a seperate ejs page for each project
 
+-------
+
+Create User Login Flow 
+    - Authorization Page
+        - Signup Page
+        - Login Page
+    - Password Encryption (hashing with salt)
+
+-------
+
+url shortner app (Improvement) [https://reubz.io/urlshortner]
+    - Allow user specific shortlinks (using user login flow)
+    - Update Database to specific users. 
+    - Allow only registered Users to make NEVER expiry links [Improvement]
+
+-------- 
