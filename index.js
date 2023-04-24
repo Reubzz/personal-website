@@ -1,6 +1,6 @@
 /** Development Mode */
 
-const devMode = false
+const devMode = true
 
 /** Development Mode - true or false */
 
@@ -22,7 +22,8 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-app.use('/urlshortner', require(path.join(__dirname, '/routes/shortlinks')))
+app.use('/urlshortner', require(path.join(__dirname, '/routes/shortlinks')));
+app.use('/projects', require(path.join(__dirname, '/routes/projects')));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
@@ -62,6 +63,9 @@ app.get("/email", (req, res) => {
 app.get("/github", (req, res) => {
     res.redirect(config.socials.github);
 });
+app.get("/test", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "home", "home.html"))
+})
 
 // For Url Shortner to work
 app.get("/:slug", async (req, res) => {
