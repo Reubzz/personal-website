@@ -63,6 +63,9 @@ app.get("/email", (req, res) => {
 app.get("/github", (req, res) => {
     res.redirect(config.socials.github);
 });
+app.get("/linkedin", (req, res) => {
+    res.redirect(config.socials.linkedin);
+});
 app.get("/test", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "home", "home.html"))
 })
