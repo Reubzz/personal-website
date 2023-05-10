@@ -8,12 +8,9 @@ const express = require("express");
 const path = require("path");
 const apicache = require("apicache");
 const config = require("./config.json");
-const shortlinksdb = require('./models/schemas/shortlinks')
-
 
 require("dotenv").config();
 
-let cache = apicache.middleware;
 const port = process.env.PORT;
 
 const app = express();
