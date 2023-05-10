@@ -25,12 +25,22 @@ app.use(express.static("public"));
 app.use('/urlshortner', require(path.join(__dirname, '/routes/shortlinks')));
 app.use('/projects', require(path.join(__dirname, '/routes/projects')));
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
+app.get("/", async (req, res) => {
+    res.status(200).render("home/home", {
+        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }),
+        aboutMe: await aboutMedb.findOne()
+    })
 });
-app.get("/home", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
+app.get("/home", async (req, res) => {
+    res.status(200).render("home/home", {
+        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }),
+        aboutMe: await aboutMedb.findOne()
+    })
 });
+
+app.get("/commingsoon", async (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
+})
 
 // Fun Pages
 
@@ -66,12 +76,6 @@ app.get("/github", (req, res) => {
 app.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
-app.get("/test", async (req, res) => {
-    res.status(200).render("home/home", {
-        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }),
-        aboutMe: await aboutMedb.findOne()
-    })
-})
 
 
 // For Url Shortner to work
