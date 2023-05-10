@@ -6,7 +6,6 @@ const devMode = true
 
 const express = require("express");
 const path = require("path");
-const apicache = require("apicache");
 const config = require("./config.json");
 
 require("dotenv").config();
