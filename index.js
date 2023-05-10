@@ -67,8 +67,13 @@ app.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
 app.get("/test", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "home", "home.html"))
+    // res.sendFile(path.join(__dirname, "pages", "home", "home.html"))
+    res.status(200).render("home/home", {
+        projects: [],
+        aboutMe: []
+    })
 })
+
 
 // For Url Shortner to work
 app.get("/:slug", async (req, res) => {
@@ -81,13 +86,11 @@ app.get("*", (req, res) => {
     res.status(404).sendFile(path.join(__dirname, "pages", "error", "404.html"));
 });
 
-mongoose.connect(mongooseURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log("Connected to DB"))
-    .catch((err) => console.log(err));
 
+
+/**
+ * DEV MODE 
+ */
 if (devMode == true) {
     app.listen(port, () =>
         console.log(`App Listening at http://localhost:${port}`)
