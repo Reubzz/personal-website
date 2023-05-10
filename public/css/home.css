@@ -23,10 +23,8 @@
 /*
 SPECIFIC CSS 
 */
-main {
-  padding: 0 5%;
-}
 main section {
+  padding: 0 5%;
   height: 100vh;
 }
 
@@ -106,6 +104,8 @@ main section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-decoration: none;
+  color: #fff;
 }
 #landing-page .scroll-down .text {
   font-size: 0.8rem;
@@ -115,17 +115,57 @@ main section {
 #introduction {
   display: flex;
   align-items: center;
+  background-color: #232323;
 }
 #introduction .intro-left {
   width: 50%;
+  display: flex;
+  justify-content: center;
 }
 #introduction .intro-left .intro-img {
-  background-image: url("/Assets/imgs/");
-  width: 35rem;
-  height: 35rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#introduction .intro-left .intro-img:hover {
+  cursor: pointer;
+}
+#introduction .intro-left .intro-img::before {
+  content: "";
+  position: absolute;
+  border-color: #5588ff;
+  border-width: 2px;
+  border-style: solid;
+  height: 350px;
+  width: 350px;
+  border-radius: 5px;
+  transform: translate(10px, 10px);
+  transition: transform 0.3s ease-in-out;
+}
+#introduction .intro-left .intro-img:hover::before {
+  transform: translate(15px, 15px);
+  transition: transform 0.3s ease-in-out;
+}
+#introduction .intro-left .intro-img img {
+  background-color: rgba(217, 217, 217, 0.1960784314);
+  z-index: 1;
+  width: 350px;
+  height: auto;
+  transform: translateY(-130px);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+#introduction .intro-left .intro-img img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
 }
 #introduction .intro-right {
   width: 50%;
@@ -210,54 +250,19 @@ main section {
   opacity: 1;
 }
 
-#skills {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-#skills .skills-left {
-  width: 50%;
-}
-#skills .skills-left .progress {
-  width: 100%;
-  height: 15px;
-  background-color: rgba(217, 217, 217, 0.1960784314);
-  border-radius: 20px;
-  margin: 10px 0;
-}
-#skills .skills-left .progress-bar {
-  height: 15px;
-  background-color: #D9D9D9;
-  border-radius: 20px;
-}
-#skills .skills-left .progress-bar span {
-  display: none;
-}
-#skills .skills-left .text-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-#skills .skills-left .text-wrapper p {
-  font-size: 1.2rem;
-}
-#skills .skills-right {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-}
-#skills .skills-right img {
-  width: 70%;
-}
-
 #projects {
   height: auto;
-  margin: 50px 0;
+  padding: 0 !important;
 }
 #projects .title {
   text-align: center;
   color: #fff;
+  margin: 0 !important;
+  padding: 30px 0 !important;
+  background-color: dimgray;
 }
 #projects .projects-gallery {
+  padding: 0 5%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -347,6 +352,7 @@ main section {
 #projects .projs-button {
   display: flex;
   justify-content: center;
+  margin: 30px 0;
 }
 #projects .projs-button a {
   background-color: rgba(217, 217, 217, 0.1960784314);

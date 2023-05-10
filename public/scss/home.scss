@@ -71,8 +71,8 @@ SPECIFIC CSS
 
 // main 
 main {
-    padding: 0 5%;
     section {
+        padding: 0 5%;
         height: 100vh;
     }
 }
@@ -153,6 +153,8 @@ main {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        text-decoration: none;
+        color: $white;
         .text {
             font-size: 0.8rem;
             font-weight: $bold;
@@ -164,16 +166,62 @@ main {
 #introduction {
     display: flex;
     align-items: center;
+    background-color: $black;
+
     .intro-left {
         width: 50%;
+        display: flex;
+        justify-content: center;
         .intro-img {
-            background-image: url("/Assets/imgs/");
-            width: 35rem;
-            height: 35rem;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
+            text-align: center;
+
+            width: 350px;
+            height: 350px;
+            border-radius: 5px;
+            overflow: hidden;
+            &:hover {
+                cursor: pointer;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                border-color: $blueLight;
+                border-width: 2px;
+                border-style: solid;
+                height: 350px;
+                width: 350px;
+                border-radius: 5px;
+                
+                transform: translate(10px, 10px);
+                transition: transform .3s ease-in-out;
+            }
+            &:hover::before {
+                transform: translate(15px, 15px);
+                transition: transform .3s ease-in-out;
+            }
+            // &::after {
+            //     z-index: -1;
+                
+            // }
+            img {
+                background-color: $bgWhiteSmokedLighter;
+                z-index: 1;
+                width: 350px;
+                height: auto;
+                transform: translateY(-130px);
+                -webkit-transform: scale(1);
+	            transform: scale(1);
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+                -webkit-transition: .3s ease-in-out;
+                transition: .3s ease-in-out;
+                &:hover {
+                    -webkit-transform: scale(1.1);
+	                transform: scale(1.1);
+                    -webkit-filter: grayscale(0);
+	                filter: grayscale(0);
+                }
+            }
         }   
     }
     .intro-right {
@@ -267,77 +315,22 @@ main {
 }
 
 
-// Skills
-#skills {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    .skills-left {
-        width: 50%;
-        .progress {
-            width: 100%;
-            height: 15px;
-            background-color: $bgWhiteSmokedLighter;
-            border-radius: 20px;
-            margin: 10px 0;
-        }
-        .progress-bar {
-            // width: 80%;
-            height: 15px;
-            background-color: $whiteSmoked;
-            border-radius: 20px;
-            span {
-                display: none;
-            }
-        }
-        .text-wrapper {
-            display: flex;
-            justify-content: space-between;
-            p {
-                font-size: 1.2rem;
-            }
-        }
-    }
-    .skills-right {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        img {
-            width: 70%;
-        }
-    }
-}
-
 #projects {
     height: auto;
-    margin: 50px 0;
+    // padding: 20px 0 50px 0;
+    padding: 0 !important;
 
     .title {
         text-align: center;
         color: $white;
+        margin: 0 !important;
+        padding: 30px 0 !important;
+        background-color: dimgray;
     }
     .projects-gallery {
-        // height: 100%;
+        padding: 0 5%;
         width: 100%;
-        // .project {
-        //     width: 35%;
-        //     height: 100%;
-        //     background-color: $black;
-        //     border-radius: 15px;
-        //     margin: 0 10px;
-        //     cursor: pointer;
-    
-        //     .project-title {
-        //         margin: 15px;
-        //         font-size: 1.4rem;
-        //     }
-        //     .project-description {
-        //         margin: 0 15px;
-        //         font-size: 1rem;
-        //     }
-        // }
         display: flex;
-        // justify-content: center;
         flex-direction: column;
         align-items: center;
         gap: 20px;
@@ -474,6 +467,7 @@ main {
     .projs-button {
         display: flex;
         justify-content: center;
+        margin: 30px 0;
         a {
             background-color: $bgWhiteSmokedLighter;
             border: 2px solid $bgWhiteSmoked;
