@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-module.exports = mongoose.model(
+const db = require('../../dbs.js')
+
+const model = db.URL_SHORTNER_DB.model(
   "shortlink",
   new mongoose.Schema({
     id: { type: String },
@@ -15,3 +17,5 @@ module.exports = mongoose.model(
     date: { type: Date }
   })
 );
+
+module.exports = model;
