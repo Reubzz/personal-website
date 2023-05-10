@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
     const links = await shortlinksdb.find();
 
-    res.status(200).render("urlshortnermain", { allLinks: links, domain: config.domain, error: 0 })
+    res.status(200).render("urlshortner/urlshortnermain", { allLinks: links, domain: config.domain, error: 0 })
 
 })
 
@@ -23,7 +23,7 @@ router.post('/', urlEncodedParser, async (req, res) => {
 
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
-        return res.render("urlshortnermain", { allLinks: await shortlinksdb.find(), domain: config.domain, error: 1 })
+        return res.render("urlshortner/urlshortnermain", { allLinks: await shortlinksdb.find(), domain: config.domain, error: 1 })
     }
     const uniqueId = getUniqueId();
 
