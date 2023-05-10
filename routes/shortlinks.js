@@ -54,7 +54,7 @@ router.post('/', urlEncodedParser, async (req, res) => {
 
     const links = await shortlinksdb.find()
 
-    res.status(200).render('urlconfirmed', { data: req.body, domain: config.domain, allLinks: links })
+    res.status(200).render('urlshortner/urlconfirmed', { data: req.body, domain: config.domain, allLinks: links })
 })
 
 router.get('/delete/:id', async (req, res) => {
