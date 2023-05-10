@@ -23,7 +23,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use('/urlshortner', require(path.join(__dirname, '/routes/shortlinks')));
-// app.use('/projects', require(path.join(__dirname, '/routes/projects')));
+app.use('/projects', require(path.join(__dirname, '/routes/projects')));
 app.use('/archive', require(path.join(__dirname, '/routes/archive')));
 
 app.get("/", async (req, res) => {
