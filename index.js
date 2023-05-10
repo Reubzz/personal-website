@@ -8,22 +8,22 @@ const express = require("express");
 const path = require("path");
 const apicache = require("apicache");
 const config = require("./config.json");
-const mongoose = require('mongoose')
 const shortlinksdb = require('./models/schemas/shortlinks')
+const aboutMedb = require('./models/schemas/aboutMe')
+const projectsdb = require('./models/schemas/projects')
 
 
 require("dotenv").config();
 
 let cache = apicache.middleware;
 const port = process.env.PORT;
-const mongooseURI = process.env.MONGOOSEURI;
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use('/urlshortner', require(path.join(__dirname, '/routes/shortlinks')));
-// app.use('/projects', require(path.join(__dirname, '/routes/projects')));
+app.use('/projects', require(path.join(__dirname, '/routes/projects')));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "comming soon", "index.html"));
@@ -66,11 +66,10 @@ app.get("/github", (req, res) => {
 app.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
-app.get("/test", (req, res) => {
-    // res.sendFile(path.join(__dirname, "pages", "home", "home.html"))
+app.get("/test", async (req, res) => {
     res.status(200).render("home/home", {
-        projects: [],
-        aboutMe: []
+        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }),
+        aboutMe: await aboutMedb.findOne()
     })
 })
 
