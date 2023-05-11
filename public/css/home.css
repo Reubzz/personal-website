@@ -44,7 +44,7 @@ SPECIFIC CSS
 ::-webkit-scrollbar-thumb {
   background: #5588ff;
   border-radius: 0.2em;
-  border: 2px #232529;
+  border: 2px #252525;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #147efb;

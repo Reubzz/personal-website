@@ -86,7 +86,7 @@ SPECIFIC CSS
 ::-webkit-scrollbar-thumb {
     background: $blueLight;
     border-radius: 0.2em;
-    border: 2px #232529;
+    border: 2px $bgColor;
     &:hover {
         background: $blue;
     }
