@@ -139,3 +139,16 @@ nav #hamburger-menu {
     color: #5588ff;
   }
 }
+
+@media screen and (max-width: 900px) {
+  nav .navbar-end {
+    display: none !important;
+  }
+  nav .navbar-start {
+    order: 1;
+  }
+  nav #hamburger-menu {
+    display: block !important;
+    order: 2;
+  }
+}

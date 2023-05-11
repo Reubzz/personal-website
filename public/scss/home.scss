@@ -66,6 +66,31 @@ $extraBold: 800;
 SPECIFIC CSS 
 */
 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $blue;
+    scrollbar-track-color: $bgColor;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: $bgColor;
+    border-radius: 0.2em;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $blueLight;
+    border-radius: 0.2em;
+    border: 2px #232529;
+    &:hover {
+        background: $blue;
+    }
+}
 
 
 
@@ -73,7 +98,7 @@ SPECIFIC CSS
 main {
     section {
         padding: 0 5%;
-        height: 100vh;
+        min-height: 100vh;
     }
 }
 
@@ -314,7 +339,7 @@ main {
 
     .title {
         text-align: center;
-        color: $white;
+        color: $blueLight;
         margin: 0 !important;
         padding: 30px 0 !important;
         background-color: #272727; // Projects Title background color.
@@ -554,20 +579,9 @@ footer {
  *       Media Queries 
  * 
 */
-@media screen and (max-width: 1024px) {
-    nav {
-        .navbar-end {
-            display: none !important;
-        }
-        .navbar-start {
-            order: 1;
-        }
-        #hamburger-menu {
-            display: block !important;
-            order: 2;
-        }
-    }
+@media screen and (max-width: 900px) {
     #landing-page {
+        // height: ;
         .wrapper {
             height: 60% !important;
             flex-direction: column-reverse;
@@ -586,7 +600,7 @@ footer {
 
 
             h3 {
-                font-size: 2rem !important;
+                font-size: 3rem !important;
             } 
             .quick-links {
                 padding: 10px 20px;
@@ -636,5 +650,15 @@ footer {
     }
     footer {
         padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #landing-page {
+        .left {
+            h3 {
+                font-size: 2rem !important;
+            }
+        }
     }
 }
