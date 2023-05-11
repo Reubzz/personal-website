@@ -181,6 +181,7 @@ main {
             overflow: hidden;
             &:hover {
                 cursor: pointer;
+                box-shadow: 0 0 15px $bgWhiteSmokedLighter;
             }
             &::before {
                 content: "";
@@ -198,26 +199,19 @@ main {
             &:hover::before {
                 transform: translate(15px, 15px);
                 transition: transform .3s ease-in-out;
+                box-shadow: 0 0 15px $bgWhiteSmokedLighter;
             }
-            // &::after {
-            //     z-index: -1;
-                
-            // }
             img {
                 background-color: $bgWhiteSmokedLighter;
-                z-index: 1;
                 width: 350px;
                 height: auto;
-                transform: translateY(-130px);
-                -webkit-transform: scale(1);
-	            transform: scale(1);
                 -webkit-filter: grayscale(100%);
                 filter: grayscale(100%);
                 -webkit-transition: .3s ease-in-out;
                 transition: .3s ease-in-out;
                 &:hover {
                     -webkit-transform: scale(1.1);
-	                transform: scale(1.1);
+	                transform: scale(1.1), translate(-5px, -5px);
                     -webkit-filter: grayscale(0);
 	                filter: grayscale(0);
                 }
@@ -264,6 +258,11 @@ main {
                         position: relative;
                         &:hover {
                             animation: hoverTechStack 0.3s ease-in-out both;
+                            box-shadow: 0 0 15px $bgWhiteSmokedLighter;
+                            .tooltiptext {
+                                visibility: visible;
+                                opacity: 1;
+                            }
                         }
                         img {
                             width: 38px;
@@ -301,12 +300,6 @@ main {
                                 border-color: transparent transparent #555 transparent;
                             }
                         }
-                        &:hover { 
-                            .tooltiptext {
-                                visibility: visible;
-                                opacity: 1;
-                            }
-                        }
                     }
                 }
             }
@@ -317,7 +310,6 @@ main {
 
 #projects {
     height: auto;
-    // padding: 20px 0 50px 0;
     padding: 0 !important;
 
     .title {
@@ -325,7 +317,7 @@ main {
         color: $white;
         margin: 0 !important;
         padding: 30px 0 !important;
-        background-color: dimgray;
+        background-color: #272727; // Projects Title background color.
     }
     .projects-gallery {
         padding: 0 5%;
@@ -380,10 +372,6 @@ main {
                     transform: translateY(0%);
                     transition: transform 4s ease-in-out 0s;    
                 }
-                // &:hover img { 
-                //     transform: translateY(-70%);
-                //     transition: transform 3s ease-in-out 0s;    
-                // }
             }
             .proj-desc {
                 width: 50%;
@@ -428,41 +416,6 @@ main {
         .project-reverse {
             flex-direction: row-reverse !important;
         }
-        
-
-        // .flickity-page-dots {
-        //     .dot {
-        //         width: 12px;
-        //         height: 12px;
-        //         opacity: 1;
-        //         background: transparent;
-        //         border: 2px solid white;
-        //     }    
-        //     .is-selected {
-        //         background: white;
-        //     }
-        // } 
-        // /* big previous & next buttons */
-        // .flickity-button {
-        //     width: 80px;
-        //     height: 80px;
-        //     background: transparent;
-        //     .flickity-button-icon {
-        //         fill: white;
-        //     }
-        //     &:hover {
-        //         background-color: #23232376;
-        //     }
-        //     &:disabled {
-        //         display: none;
-        //     }
-        // }
-        // .flickity-button.previous {
-        //     left: -60px;
-        // }
-        // .flickity-button.next {
-        //     right: -60px;
-        // }
     }
     .projs-button {
         display: flex;
@@ -594,4 +547,94 @@ footer {
     100% {
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }
-  }
+}
+
+/**
+ * 
+ *       Media Queries 
+ * 
+*/
+@media screen and (max-width: 1024px) {
+    nav {
+        .navbar-end {
+            display: none !important;
+        }
+        .navbar-start {
+            order: 1;
+        }
+        #hamburger-menu {
+            display: block !important;
+            order: 2;
+        }
+    }
+    #landing-page {
+        .wrapper {
+            height: 60% !important;
+            flex-direction: column-reverse;
+
+        }
+        .right {
+            // display:  !important; 
+            // position: absolute;
+            z-index: -1;
+            width: 90% !important;
+        }
+        .left {
+            width: 100% !important;
+            height: 80% !important;
+            align-items: center !important;
+
+
+            h3 {
+                font-size: 2rem !important;
+            } 
+            .quick-links {
+                padding: 10px 20px;
+            }
+        }
+    }
+    #introduction {
+        padding: 20px 5%;
+        flex-direction: column;
+        height: auto !important;
+        .intro-left {
+            width: auto !important;
+        }
+        .intro-right {
+            width: auto !important;
+            #tech-stack {
+                gap: 10px;
+                .tooltiptext {
+                    background-color: $black !important;
+                }
+            }
+        }
+    }
+
+    #projects { 
+        .projects-gallery {
+            .project {
+                width: 100% !important;
+                flex-direction: column-reverse !important;
+                height: auto;
+                padding: 20px 0 !important;
+
+                .proj-desc {
+                    width: 100% !important;
+                    gap: 20px !important;
+                }
+                .proj-img {
+                    width: 100% !important;
+                    height: 15rem !important;
+                }
+            }
+        }
+    }
+
+    #socials {
+        flex-direction: column-reverse;
+    }
+    footer {
+        padding: 0 !important;
+    }
+}
