@@ -10,8 +10,13 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 require('dotenv').config();
 let cache = apicache.middleware
 
+const projectsdb = require('../models/schemas/projects')
+
 router.get('/', async (req, res) => {
-    res.sendFile(path.join(__dirname, "../pages", 'projects', 'projects.html'));
+    // res.sendFile(path.join(__dirname, "../pages", 'projects', 'projects.html'));
+    res.status(200).render("projects/projects", {
+        projects: await projectsdb.find().sort({ projectId: 1 })
+    })
 })
 router.get('discord-bot', async (req, res) => { })
 router.get('bot-website', async (req, res) => { })

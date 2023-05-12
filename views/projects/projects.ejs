@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+
+
+    <link rel="stylesheet" href="/css/projects.css">
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+    <header>
+        <header>
+            <nav>
+                <!-- Pc Navbar -->
+                <div class="navbar logo-brand navbar-start">
+                    <a href="/" class="navbar-item">
+                        <h1>Reuben George</h1>
+                    </a>
+                </div>
+                <div class="navbar navbar-end">
+                    <ul>
+                        <li><a href="/" class="navbar-item underlineText">Home</a></li>
+                        <li><a href="#download-resume" class="navbar-item underlineText">Resume</a></li>
+                        <li><a href="#contact" class="navbar-item underlineText">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Navbar -->
+                <div id="hamburger-menu" onclick="openMobileMenu(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <ul class="mobile-menu">
+                        <li><a href="/" class="navbar-item">Home</a></li>
+                        <li><a href="#download-resume" class="navbar-item">Resume</a></li>
+                        <li><a href="#contact" class="navbar-item">Contact</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+    </header>
+    <main>
+        <div class="project-grid">
+
+            <% projects.forEach(function(project) { %>
+                <div class="project-tab">
+                    <div class="proj-img">
+                        <img src="<%= project.img %>" alt="Project 1img">
+                    </div>
+                    <div class="proj-desc">
+                        <h2>
+                            <%= project.name %>
+                        </h2>
+                        <p>
+                            <%= project.description %>
+                        </p>
+                    </div>
+                    <div class="button-group">
+                        <% if(project.code) { %>
+                            <a class="button" href="<%=project.code%>">Source Code <i
+                                    class="fa-brands fa-github"></i></a>
+                            <% } %>
+                                <!--  -->
+                                <% if(project.live) { %>
+                                    <a class="button" href="<%=project.live%>">Live Demo <i
+                                            class="fa-solid fa-link"></i></a>
+                                    <% } %>
+
+                    </div>
+                </div>
+                <% }) %>
+
+
+        </div>
+    </main>
+    <footer>
+        <section id="contact">
+            <h1 class="title">Contact</h1>
+            <div class="email">
+                <a href="/email" target="_blank">
+                    <div class="email-btn-left">
+                        <i class="fa-solid fa-envelope fa-5x" style="color: #ffffff"></i>
+                    </div>
+                    <div class="email-btn-right">
+                        <p id="email-header">Email</p>
+                        <p id="email-id">contact@reubz.io</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="socials">
+            <div class="copyright">
+                <p>&COPY; 2023 by Reuben George. All Rights Reserved.</p>
+            </div>
+            <div class="socials">
+                <a href="/instagram" target="_blank">
+                    <i class="fa-brands fa-instagram fa-3x" style="color: #ffffff;"></i>
+                </a>
+                <a href="/twitter" target="_blank">
+                    <i class="fa-brands fa-twitter fa-3x" style="color: #ffffff;"></i>
+                </a>
+                <a href="/discord" target="_blank">
+                    <i class="fa-brands fa-discord fa-3x" style="color: #ffffff;"></i>
+                </a>
+                <a href="/github" target="_blank">
+                    <i class="fa-brands fa-github fa-3x" style="color: #ffffff;"></i>
+                </a>
+                <a href="/linkedin" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-3x" style="color: #ffffff;"></i>
+                </a>
+            </div>
+        </section>
+
+
+    </footer>
+
+    <script src="https://kit.fontawesome.com/4d3f484b6f.js" crossorigin="anonymous"></script>
+    <script src="/js/common.js"></script>
+
+
+
+</body>
+
+</html>
