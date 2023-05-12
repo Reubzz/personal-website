@@ -108,51 +108,57 @@
     <div class="spacer layer1 rotate"></div>
 
     <section class="section2">
-        <h1 class="title nunito">All Links</h1>
+        <% if(allLinks.length>0) { %>
 
-        <div class="all-links">
-            <% allLinks.forEach(function(link){ %>
-                <div class="alink-card">
-                    <div class="alinks">
-                        <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
-                            <%=domain%>/<%=link.slug%>
-                        </a>
+            <h1 class="title nunito">All Links</h1>
 
-                        <a href="<%=link.href%>" class="alink-href alink">
-                            <%=link.href%>
-                        </a>
-                    </div>
-                    <div class="buttons">
-                        <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
-                                class="fa-regular fa-eye-slash"></i></button>
-                        <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-                <% }); %>
-        </div>
-        <h3 class="title nunito">Disabled Links</h3>
-        <div class="all-links">
-            <% disabledLinks.forEach(function(link){ %>
-                <div class="alink-card">
-                    <div class="alinks">
-                        <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
-                            <%=domain%>/<%=link.slug%>
-                        </a>
+            <div class="all-links">
+                <% allLinks.forEach(function(link){ %>
+                    <div class="alink-card">
+                        <div class="alinks">
+                            <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
+                                <%=domain%>/<%=link.slug%>
+                            </a>
 
-                        <a href="<%=link.href%>" class="alink-href alink">
-                            <%=link.href%>
-                        </a>
+                            <a href="<%=link.href%>" class="alink-href alink">
+                                <%=link.href%>
+                            </a>
+                        </div>
+                        <div class="buttons">
+                            <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                                    class="fa-regular fa-eye-slash"></i></button>
+                            <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
+                                    class="fa-regular fa-trash-can"></i></button>
+                        </div>
                     </div>
-                    <div class="buttons">
-                        <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
-                                class="fa-regular fa-eye"></i></button>
-                        <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
-                                class="fa-regular fa-trash-can"></i></button>
+                    <% }); %>
+            </div>
+            <% } %>
+
+                <% if(disabledLinks.length> 0) { %>
+                    <h3 class="title nunito">Disabled Links</h3>
+                    <div class="all-links">
+                        <% disabledLinks.forEach(function(link){ %>
+                            <div class="alink-card">
+                                <div class="alinks">
+                                    <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
+                                        <%=domain%>/<%=link.slug%>
+                                    </a>
+
+                                    <a href="<%=link.href%>" class="alink-href alink">
+                                        <%=link.href%>
+                                    </a>
+                                </div>
+                                <div class="buttons">
+                                    <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                                            class="fa-regular fa-eye"></i></button>
+                                    <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
+                                            class="fa-regular fa-trash-can"></i></button>
+                                </div>
+                            </div>
+                            <% }); %>
                     </div>
-                </div>
-                <% }); %>
-        </div>
+                    <% } %>
     </section>
 
 
