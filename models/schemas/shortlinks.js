@@ -15,7 +15,8 @@ const model = db.URL_SHORTNER_DB.model(
     expireAt2W: { type: Date, expires: 60 * 60 * 24 * 14 },
     expireAt1M: { type: Date, expires: 60 * 60 * 24 * 30 },
     date: { type: Date },
-    disabled: { type: Boolean }
+    disabled: { type: Boolean },
+    createdAt: { type: Date }
   })
 );
 

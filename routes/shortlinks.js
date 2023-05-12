@@ -10,8 +10,8 @@ require('dotenv').config();
 
 router.get('/', async (req, res) => {
     res.status(200).render("urlshortner/urlshortnermain", {
-        allLinks: await shortlinksdb.find({ disabled: false }),
-        disabledLinks: await shortlinksdb.find({ disabled: true }),
+        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
         domain: config.domain,
         error: 0
     })
@@ -23,8 +23,8 @@ router.post('/', urlEncodedParser, async (req, res) => {
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
         return res.render("urlshortner/urlshortnermain", {
-            allLinks: await shortlinksdb.find({ disabled: false }),
-            disabledLinks: await shortlinksdb.find({ disabled: true }),
+            allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
+            disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
             domain: config.domain,
             error: 1
         })
@@ -36,6 +36,7 @@ router.post('/', urlEncodedParser, async (req, res) => {
         slug: req.body.slug,
         href: `${req.body.href}`,
         disabled: false,
+        createdAt: new Date().getTime(),
     })
     await newEntry.save()
 
@@ -60,8 +61,9 @@ router.post('/', urlEncodedParser, async (req, res) => {
     res.status(200).render('urlshortner/urlconfirmed', {
         data: req.body,
         domain: config.domain,
-        allLinks: await shortlinksdb.find({ disabled: false }),
-        disabledLinks: await shortlinksdb.find({ disabled: true }),
+        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
+        error: 0,
     })
 })
 
