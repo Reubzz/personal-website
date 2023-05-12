@@ -54,7 +54,8 @@
                 <div class="navbar navbar-end">
                     <ul>
                         <li><a href="/" class="navbar-item underlineText">Home</a></li>
-                        <li><a href="/files/Resume.pdf" class="navbar-item underlineText">Resume</a></li>
+                        <li><a href="/files/Resume.pdf" class="navbar-item underlineText" target="_blank">Resume</a>
+                        </li>
                         <li><a href="#contact" class="navbar-item underlineText">Contact</a></li>
                     </ul>
                 </div>
@@ -66,7 +67,7 @@
                     <div class="bar3"></div>
                     <ul class="mobile-menu">
                         <li><a href="/" class="navbar-item">Home</a></li>
-                        <li><a href="/files/Resume.pdf" class="navbar-item">Resume</a></li>
+                        <li><a href="/files/Resume.pdf" class="navbar-item" target="_blank">Resume</a></li>
                         <li><a href="#contact" class="navbar-item">Contact</a></li>
                     </ul>
                 </div>
@@ -92,12 +93,12 @@
                     </div>
                     <div class="button-group">
                         <% if(project.code) { %>
-                            <a class="button" href="<%=project.code%>">Source Code <i
+                            <a class="button" href="<%=project.code%>" target="_blank">Source Code <i
                                     class="fa-brands fa-github"></i></a>
                             <% } %>
                                 <!--  -->
                                 <% if(project.live) { %>
-                                    <a class="button" href="<%=project.live%>">Live Demo <i
+                                    <a class="button" href="<%=project.live%>" target="_blank">Live Demo <i
                                             class="fa-solid fa-link"></i></a>
                                     <% } %>
 
