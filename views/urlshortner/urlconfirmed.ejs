@@ -20,23 +20,36 @@
 </head>
 
 <body>
-    <nav>
-        <div class="navbar navbar-start">
-            <ul>
-                <li><a href="#projects" class="navbar-item"><i class="fa-solid fa-briefcase"></i> Projects</a></li>
-            </ul>
-        </div>
-        <div class="navbar logo-brand navbar-center iss-hidden">
-            <a href="/" class="navbar-item">
-                <h1>Reuben George</h1>
-            </a>
-        </div>
-        <div class="navbar navbar-end">
-            <ul>
-                <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="navbar navbar-start">
+                <ul>
+                    <li><a href="/" class="navbar-item"><i class="fa-solid fa-home"></i> Home</a></li>
+                </ul>
+            </div>
+            <div class="navbar logo-brand navbar-center iss-hidden">
+                <a href="/" class="navbar-item">
+                    <h1>Reuben George</h1>
+                </a>
+            </div>
+            <div class="navbar navbar-end">
+                <ul>
+                    <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+            <div id="hamburger-menu" onclick="openMobileMenu(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <ul class="mobile-menu">
+                    <li><a class="navbar-item" href="/"><i class="fa-solid fa-home"></i> Home</a></li>
+                    <li><a class="navbar-item" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
 
     <div class="spacer layer1"></div>
     <section id="create-link-section" class="section1">
