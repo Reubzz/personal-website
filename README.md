@@ -1,7 +1,7 @@
 # Reubz.io
 
 <div align="center">
-    <image src="https://raw.githubusercontent.com/Reubzz/personal-website/master/public/Assets/imgs/pfp.png" width="150"></image>
+    <image src="./public/Assets/imgs/pfp.png" width="150"></image>
 </div>
 <div align="center">
     The Second Iteration of <a href="https://reubz.io">Reubz.io</a> built with Node.js and hosted on <a href="https://railway.app/">Railway</a>
@@ -12,7 +12,7 @@
 <br>
 <br>
 
-![demo](https://raw.githubusercontent.com/Reubzz/personal-website/master/public/Assets/imgs/website-screenshot.png)
+![demo](./public/Assets/imgs/website-screenshot.png)
 
 ## 🎨 Color Reference
 
