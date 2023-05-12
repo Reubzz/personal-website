@@ -66,6 +66,7 @@ router.get("/linkedin", (req, res) => {
 router.get("/:slug", async (req, res) => {
     const check = await shortlinksdb.findOne({ slug: req.params.slug })
     if (!check) return res.status(404).sendFile(path.join(__dirname, '../pages', 'error', '404.html')); // 404 Page
+    if (check.disabled == true) return res.status(404).sendFile(path.join(__dirname, "../pages", "error", "404.html"))
     else { res.status(302).redirect(check.href); }
 })
 

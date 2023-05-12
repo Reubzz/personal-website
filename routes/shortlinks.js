@@ -10,7 +10,8 @@ require('dotenv').config();
 
 router.get('/', async (req, res) => {
     res.status(200).render("urlshortner/urlshortnermain", {
-        allLinks: await shortlinksdb.find(),
+        allLinks: await shortlinksdb.find({ disabled: false }),
+        disabledLinks: await shortlinksdb.find({ disabled: true }),
         domain: config.domain,
         error: 0
     })
@@ -22,7 +23,8 @@ router.post('/', urlEncodedParser, async (req, res) => {
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
         return res.render("urlshortner/urlshortnermain", {
-            allLinks: await shortlinksdb.find(),
+            allLinks: await shortlinksdb.find({ disabled: false }),
+            disabledLinks: await shortlinksdb.find({ disabled: true }),
             domain: config.domain,
             error: 1
         })
@@ -33,6 +35,7 @@ router.post('/', urlEncodedParser, async (req, res) => {
         id: uniqueId,
         slug: req.body.slug,
         href: `${req.body.href}`,
+        disabled: false,
     })
     await newEntry.save()
 
@@ -57,12 +60,22 @@ router.post('/', urlEncodedParser, async (req, res) => {
     res.status(200).render('urlshortner/urlconfirmed', {
         data: req.body,
         domain: config.domain,
-        allLinks: await shortlinksdb.find()
+        allLinks: await shortlinksdb.find({ disabled: false }),
+        disabledLinks: await shortlinksdb.find({ disabled: true }),
     })
 })
 
 router.get('/delete/:id', async (req, res) => {
     shortlinksdb.deleteOne({ id: req.params.id }).then(function () {
+        res.redirect("/urlshortner");
+    }).catch(function (error) {
+        console.log(error); // Failure
+    });
+})
+router.get('/disable/:id', async (req, res) => {
+    const check = await shortlinksdb.findOne({ id: req.params.id });
+    check.disabled = (check.disabled == true) ? false : true;
+    await check.save().then(function () {
         res.redirect("/urlshortner");
     }).catch(function (error) {
         console.log(error); // Failure

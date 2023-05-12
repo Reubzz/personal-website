@@ -110,8 +110,7 @@
     <section class="section2">
         <h1 class="title nunito">All Links</h1>
 
-        <div id="all-links" class="">
-
+        <div class="all-links" class="">
             <% allLinks.forEach(function(link){ %>
                 <div class="alink-card">
                     <div class="alinks">
@@ -124,7 +123,30 @@
                         </a>
                     </div>
                     <div class="buttons">
-                        <!-- <button class="alink-disable"><i class="fa-regular fa-eye-slash"></i></button> -->
+                        <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                                class="fa-regular fa-eye-slash"></i></button>
+                        <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
+                                class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <h3 class="title nunito">Disabled Links</h3>
+        <div class="all-links" class="">
+            <% disabledLinks.forEach(function(link){ %>
+                <div class="alink-card">
+                    <div class="alinks">
+                        <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
+                            <%=domain%>/<%=link.slug%>
+                        </a>
+
+                        <a href="<%=link.href%>" class="alink-href alink">
+                            <%=link.href%>
+                        </a>
+                    </div>
+                    <div class="buttons">
+                        <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                                class="fa-regular fa-eye"></i></button>
                         <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
