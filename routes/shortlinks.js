@@ -2,20 +2,18 @@ const express = require('express')
 const router = express.Router()
 const path = require('path')
 const config = require('../config.json');
-const mongoose = require("mongoose");
-const apicache = require('apicache');
 const shortlinksdb = require('../models/schemas/shortlinks')
 const bodyParser = require('body-parser')
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
 require('dotenv').config();
-let cache = apicache.middleware
 
 router.get('/', async (req, res) => {
-
-    const links = await shortlinksdb.find();
-
-    res.status(200).render("urlshortner/urlshortnermain", { allLinks: links, domain: config.domain, error: 0 })
+    res.status(200).render("urlshortner/urlshortnermain", {
+        allLinks: await shortlinksdb.find(),
+        domain: config.domain,
+        error: 0
+    })
 
 })
 
@@ -23,7 +21,11 @@ router.post('/', urlEncodedParser, async (req, res) => {
 
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
-        return res.render("urlshortner/urlshortnermain", { allLinks: await shortlinksdb.find(), domain: config.domain, error: 1 })
+        return res.render("urlshortner/urlshortnermain", {
+            allLinks: await shortlinksdb.find(),
+            domain: config.domain,
+            error: 1
+        })
     }
     const uniqueId = getUniqueId();
 
@@ -52,9 +54,11 @@ router.post('/', urlEncodedParser, async (req, res) => {
 
     await check.save().catch()
 
-    const links = await shortlinksdb.find()
-
-    res.status(200).render('urlshortner/urlconfirmed', { data: req.body, domain: config.domain, allLinks: links })
+    res.status(200).render('urlshortner/urlconfirmed', {
+        data: req.body,
+        domain: config.domain,
+        allLinks: await shortlinksdb.find()
+    })
 })
 
 router.get('/delete/:id', async (req, res) => {
@@ -65,9 +69,9 @@ router.get('/delete/:id', async (req, res) => {
     });
 })
 
-// actual url redirecter shifted to index.js as it won't work if placed here. 
+// actual url redirecter shifted to routes/main.js as it won't work if placed here. 
 // due to Routers - if url redirecter is placed here the link would be --> reubz.io/urlshorter/<slug_here>
-// to avoid this it is placed in index.js, hence now the link works as intended --> reubz.io/<slug_here>
+// to avoid this it is placed in routes/main.js, hence now the link works as intended --> reubz.io/<slug_here>
 
 function getUniqueId() {
     return Math.random().toString(36).slice(2);
