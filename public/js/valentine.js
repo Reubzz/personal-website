@@ -8,10 +8,6 @@ button2.addEventListener('click', function () {
     this.style.top = `${Math.random() * 80}%`;
 });
 
-// document.getElementById('btn2').addEventListener('click', function () {
-//   alert('YEYY THANK U, I LOVE U');
-// });
-
 const dailog = document.getElementById("dialog");
 function openModal() {
     dailog.showModal();
