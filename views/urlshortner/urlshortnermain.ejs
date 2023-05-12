@@ -116,11 +116,11 @@
                 <% allLinks.forEach(function(link){ %>
                     <div class="alink-card">
                         <div class="alinks">
-                            <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
+                            <a class="alink-customurl alink" target="_blank" href="https://<%=domain%>/<%=link.slug%>">
                                 <%=domain%>/<%=link.slug%>
                             </a>
 
-                            <a href="<%=link.href%>" class="alink-href alink">
+                            <a href="<%=link.href%>" target="_blank" class="alink-href alink">
                                 <%=link.href%>
                             </a>
                         </div>
@@ -141,11 +141,12 @@
                         <% disabledLinks.forEach(function(link){ %>
                             <div class="alink-card">
                                 <div class="alinks">
-                                    <a class="alink-customurl alink" href="https://<%=domain%>/<%=link.slug%>">
+                                    <a class="alink-customurl alink" target="_blank"
+                                        href="https://<%=domain%>/<%=link.slug%>">
                                         <%=domain%>/<%=link.slug%>
                                     </a>
 
-                                    <a href="<%=link.href%>" class="alink-href alink">
+                                    <a href="<%=link.href%>" target="_blank" class="alink-href alink">
                                         <%=link.href%>
                                     </a>
                                 </div>
@@ -171,13 +172,14 @@
             <h1 class="title">Contact Me</h1>
             <div class="links">
                 <div class="left-container">
-                    <a class="link" href="/email"><i class="fa-regular fa-envelope"></i>Email</a>
-                    <a class="link" href="/twitter"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                    <a class="link" target="_blank" href="/email"><i class="fa-regular fa-envelope"></i>Email</a>
+                    <a class="link" target="_blank" href="/twitter"><i class="fa-brands fa-twitter"></i>Twitter</a>
 
                 </div>
                 <div class="right-container">
-                    <a class="link" href="/discord"><i class="fa-brands fa-discord"></i>Discord</a>
-                    <a class="link" href="/instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a class="link" target="_blank" href="/discord"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <a class="link" target="_blank" href="/instagram"><i class="fa-brands fa-instagram"></i>
+                        Instagram</a>
                 </div>
             </div>
         </div>
