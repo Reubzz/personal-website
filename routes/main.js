@@ -39,10 +39,7 @@ router.get("/honestly", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages", "fun pages", "to be honest", "index.html"))
 })
 
-// Atiya Birthday
-router.get("/atiya", (req, res) => {
-    res.sendFile(path.join(__dirname, "../pages", "atiya", "atiya.html"));
-})
+
 router.get("/instagram", (req, res) => {
     res.redirect(config.socials.instagram);
 });
@@ -68,13 +65,13 @@ router.get("/linkedin", (req, res) => {
 // For Url Shortner to work
 router.get("/:slug", async (req, res) => {
     const check = await shortlinksdb.findOne({ slug: req.params.slug })
-    if (!check) return res.status(404).sendFile(path.join(__dirname, 'pages', 'error', '404.html'));
+    if (!check) return res.status(404).sendFile(path.join(__dirname, '../pages', 'error', '404.html')); // 404 Page
     else { res.status(302).redirect(check.href); }
 })
 
 // 404 Page
 router.get("*", (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, "../pages", "error", "404.html"));
+    res.sendFile(path.join(__dirname, "../../pages", "error", "404.html")).status(404);
 });
 
 
