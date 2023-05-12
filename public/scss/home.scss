@@ -465,100 +465,12 @@ main {
     }
 }
 
-footer {
-    padding: 0 10%;
-    background-color: $black;
-}
-
-// contact
-#contact {
-    padding: 50px 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    .title {
-        margin: 0 !important;
-        color: $white;
-    }
-    .email {
-        a {
-            padding: 5px 25px;
-            border-radius: 10px;
-            border: 3px solid $bgWhiteSmokedLighter;
-            background-color: $bgWhiteSmokedLighter;
-            display: flex;
-            flex-direction: row;
-            text-decoration: none;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            #email-header {
-                color: $white;
-                font-size: 1rem;
-                font-weight: $bold;
-            }   
-            #email-id {
-                color: $whiteSmoked;
-                font-size: 1rem;
-            }
-            &:hover { 
-
-                #email-id{
-                    color: $white;
-                    font-size: 0.93rem;
-                    font-weight: $bold;
-                }
-                animation: hoverTechStack 0.3s ease-in-out both;
-            }
-        }
-    }
-}
-
-
-// Socials 
-#socials {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .socials {
-        display: flex;
-        gap: 20px;
-        
-        i {
-            color: #ffffff;
-            &:hover{
-                animation: hoverIcon 0.5s ease-in-out both;
-            }
-        }
-    
-    }
-    .copyright {
-        padding: 20px 0;
-        text-align: center;
-        font-size: 0.9rem;
-        font-weight: $bold;
-    }
-}
 
 
 
 // ANIMATIONS
 
 
-@keyframes hoverTechStack {
-    0% {
-        background-color: $bgWhiteSmokedLighter;
-        border-color: $bgWhiteSmoked;
-    }
-    100% {
-        background-color: $blueLight;
-        border-color: $blue;
-    }
-}
 
 @keyframes morph {
     0% {
@@ -643,13 +555,6 @@ footer {
                 }
             }
         }
-    }
-
-    #socials {
-        flex-direction: column-reverse;
-    }
-    footer {
-        padding: 0 !important;
     }
 }
 

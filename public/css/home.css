@@ -395,86 +395,6 @@ main section {
   animation: hoverTechStack 0.3s ease-in-out both;
 }
 
-footer {
-  padding: 0 10%;
-  background-color: #232323;
-}
-
-#contact {
-  padding: 50px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-}
-#contact .title {
-  margin: 0 !important;
-  color: #fff;
-}
-#contact .email a {
-  padding: 5px 25px;
-  border-radius: 10px;
-  border: 3px solid rgba(217, 217, 217, 0.1960784314);
-  background-color: rgba(217, 217, 217, 0.1960784314);
-  display: flex;
-  flex-direction: row;
-  text-decoration: none;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-#contact .email a #email-header {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-}
-#contact .email a #email-id {
-  color: #D9D9D9;
-  font-size: 1rem;
-}
-#contact .email a:hover {
-  animation: hoverTechStack 0.3s ease-in-out both;
-}
-#contact .email a:hover #email-id {
-  color: #fff;
-  font-size: 0.93rem;
-  font-weight: 700;
-}
-
-#socials {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#socials .socials {
-  display: flex;
-  gap: 20px;
-}
-#socials .socials i {
-  color: #ffffff;
-}
-#socials .socials i:hover {
-  animation: hoverIcon 0.5s ease-in-out both;
-}
-#socials .copyright {
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-@keyframes hoverTechStack {
-  0% {
-    background-color: rgba(217, 217, 217, 0.1960784314);
-    border-color: rgba(217, 217, 217, 0.6196078431);
-  }
-  100% {
-    background-color: #5588ff;
-    border-color: #147efb;
-  }
-}
 @keyframes morph {
   0% {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
@@ -541,12 +461,6 @@ footer {
   #projects .projects-gallery .project .proj-img {
     width: 100% !important;
     height: 15rem !important;
-  }
-  #socials {
-    flex-direction: column-reverse;
-  }
-  footer {
-    padding: 0 !important;
   }
 }
 @media screen and (max-width: 600px) {
