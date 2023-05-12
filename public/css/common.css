@@ -5,12 +5,43 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #147efb;
+  scrollbar-track-color: #252525;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #252525;
+  border-radius: 0.2em;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5588ff;
+  border-radius: 0.2em;
+  border: 2px #252525;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #147efb;
 }
 body {
   background-color: #252525;
   font-family: "Open Sans";
   color: #fff;
   font-size: 62.5%;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 20px 0;
+  color: #5588ff;
 }
 
 .underlineText {

@@ -13,43 +13,9 @@
 /**
     COMMON CSS
 */
-.title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 20px 0;
-  color: #5588ff;
-}
-
 /*
 SPECIFIC CSS 
 */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #147efb;
-  scrollbar-track-color: #252525;
-}
-
-/* Scroll Bar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #252525;
-  border-radius: 0.2em;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #5588ff;
-  border-radius: 0.2em;
-  border: 2px #252525;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #147efb;
-}
-
 main section {
   padding: 0 5%;
   min-height: 100vh;

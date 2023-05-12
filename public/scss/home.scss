@@ -54,44 +54,11 @@ $extraBold: 800;
     COMMON CSS
 */
 
-.title {
-    font-size: 1.8rem;
-    font-weight: $bold;
-    margin: 20px 0;
-    color: $blueLight;
-}
 
 
 /*
 SPECIFIC CSS 
 */
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: $blue;
-    scrollbar-track-color: $bgColor;
-}
-
-/* Scroll Bar */
-::-webkit-scrollbar {
-    width: 6px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-    background: $bgColor;
-    border-radius: 0.2em;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: $blueLight;
-    border-radius: 0.2em;
-    border: 2px $bgColor;
-    &:hover {
-        background: $blue;
-    }
-}
-
 
 
 // main 
