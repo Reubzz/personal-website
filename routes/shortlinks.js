@@ -41,20 +41,7 @@ router.post('/', urlEncodedParser, async (req, res) => {
     await newEntry.save()
 
     const check = await shortlinksdb.findOne({ id: uniqueId })
-
-    if (req.body.expiryTime == "12-Hours") {
-        check.expireAt12H = new Date()
-    } else if (req.body.expiryTime == "1-Day") {
-        check.expireAt1D = new Date()
-    } else if (req.body.expiryTime == "2-Day") {
-        check.expireAt3D = new Date()
-    } else if (req.body.expiryTime == "1-Week") {
-        check.expireAt1W = new Date()
-    } else if (req.body.expiryTime == "2-Week") {
-        check.expireAt2W = new Date()
-    } else if (req.body.expiryTime == "1-Month") {
-        check.expireAt1M = new Date()
-    }
+    check[req.body.expiryTime] = new Date()
 
     await check.save().catch()
 
