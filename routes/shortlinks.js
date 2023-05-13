@@ -9,49 +9,42 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 require('dotenv').config();
 
 router.get('/', async (req, res) => {
-    res.status(200).render("urlshortner/urlshortnermain", {
-        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
-        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
-        domain: config.domain,
+    await sendMainPage({
+        req: req,
+        res: res,
         error: 0
     })
-
 })
 
 router.post('/', urlEncodedParser, async (req, res) => {
 
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
-        return res.render("urlshortner/urlshortnermain", {
-            allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
-            disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
-            domain: config.domain,
+        return await sendMainPage({
+            req: req,
+            res: res,
             error: 1
         })
     }
-    const uniqueId = getUniqueId();
 
     const newEntry = new shortlinksdb({
-        id: uniqueId,
+        id: getUniqueId(),
         slug: req.body.slug,
         href: `${req.body.href}`,
         disabled: false,
         createdAt: new Date().getTime(),
+        [req.body.expiryTime]: new Date(),
     })
-    await newEntry.save()
-
-    const check = await shortlinksdb.findOne({ id: uniqueId })
-    check[req.body.expiryTime] = new Date()
-
-    await check.save().catch()
-
-    res.status(200).render('urlshortner/urlconfirmed', {
-        data: req.body,
-        domain: config.domain,
-        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
-        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
-        error: 0,
-    })
+    await newEntry
+        .save()
+        .catch((e) => console.log(e))
+        .then(async () => {
+            await sendConfirmedPage({
+                req: req,
+                res: res,
+                error: 0
+            })
+        })
 })
 
 router.get('/delete/:id', async (req, res) => {
@@ -77,6 +70,24 @@ router.get('/disable/:id', async (req, res) => {
 
 function getUniqueId() {
     return Math.random().toString(36).slice(2);
+}
+
+async function sendMainPage({ req, res, error }) {
+    res.status(200).render("urlshortner/urlshortnermain", {
+        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
+        domain: config.domain,
+        error: error
+    })
+}
+async function sendConfirmedPage({ req, res, error }) {
+    res.status(200).render('urlshortner/urlconfirmed', {
+        data: req.body,
+        domain: config.domain,
+        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
+        error: error,
+    })
 }
 
 module.exports = router;
