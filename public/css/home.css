@@ -9,7 +9,6 @@
  *  8 - Media Queries
 
 */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 /**
     COMMON CSS
 */
@@ -19,6 +18,60 @@ SPECIFIC CSS
 main section {
   padding: 0 5%;
   min-height: 100vh;
+}
+
+#loading-layer {
+  min-height: 100vh;
+  background-color: #232323;
+  overflow-y: hidden;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: endAnim 2.5s linear forwards;
+}
+@keyframes endAnim {
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#loading-layer h1 {
+  position: relative;
+  font-size: 7vw;
+  color: transparent;
+  stroke: 0.2vw #5588ff;
+  -webkit-text-stroke: 0.2vw #5588ff;
+  text-transform: uppercase;
+}
+#loading-layer h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #147efb;
+  stroke: 0.2vw #5588ff;
+  -webkit-text-stroke: 0.2vw #147efb;
+  border-right: 5px solid #147efb;
+  overflow: hidden;
+  animation: loading 2.5s linear forwards;
+}
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+#homepage-wrapper {
+  display: none;
 }
 
 #landing-page {

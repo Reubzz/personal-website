@@ -25,7 +25,7 @@
 
 
 //  Fonts
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 //  Variables
 $white: #fff;
@@ -68,7 +68,61 @@ main {
         min-height: 100vh;
     }
 }
+#loading-layer {
+    min-height: 100vh;
+    background-color: $black;
+    overflow-y: hidden;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: endAnim 2.5s linear forwards;
 
+    @keyframes endAnim {
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+        
+    }
+    h1 {
+        position: relative;
+        font-size: 7vw;
+        color: transparent;
+        stroke: 0.2vw $blueLight;
+        -webkit-text-stroke: 0.2vw $blueLight;
+        text-transform: uppercase;
+        &::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            color: $blue;
+            stroke: 0.2vw $blueLight;
+            -webkit-text-stroke: 0.2vw $blue;
+            border-right: 5px solid $blue;
+            overflow: hidden;
+            animation: loading 2.5s linear forwards;
+
+            @keyframes loading {
+                0% {
+                    width: 0;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+#homepage-wrapper {
+    display: none;
+}
 // section
 #landing-page {
     display: flex;

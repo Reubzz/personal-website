@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="preload" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" />
+    </noscript>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,202 +50,213 @@
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
+
+
 </head>
 
 <body>
-    <header>
-        <nav>
-            <!-- Pc Navbar -->
-            <div class="navbar logo-brand navbar-start">
-                <a href="/" class="navbar-item">
-                    <h1>Reuben George</h1>
-                </a>
-            </div>
-            <div class="navbar navbar-end">
-                <ul>
-                    <li><a href="#projects" class="navbar-item underlineText">Projects</a></li>
-                    <li><a href="/files/Resume.pdf" class="navbar-item underlineText" target="_blank">Resume</a></li>
-                    <li><a href="#contact" class="navbar-item underlineText">Contact</a></li>
-                </ul>
-            </div>
+    <div id="loading-layer">
+        <div class="loading-container">
+            <h1 id="loading-data" data-text="reubz.io">reubz.io</h1>
+        </div>
+    </div>
+    <div id="homepage-wrapper">
+        <header>
+            <nav>
+                <!-- Pc Navbar -->
+                <div class="navbar logo-brand navbar-start">
+                    <a href="/" class="navbar-item">
+                        <h1>Reuben George</h1>
+                    </a>
+                </div>
+                <div class="navbar navbar-end">
+                    <ul>
+                        <li><a href="#projects" class="navbar-item underlineText">Projects</a></li>
+                        <li><a href="/files/Resume.pdf" class="navbar-item underlineText" target="_blank">Resume</a>
+                        </li>
+                        <li><a href="#contact" class="navbar-item underlineText">Contact</a></li>
+                    </ul>
+                </div>
 
-            <!-- Mobile Navbar -->
-            <div id="hamburger-menu" onclick="openMobileMenu(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                <ul class="mobile-menu">
-                    <li><a href="#projects" class="navbar-item underlineText">Projects</a></li>
-                    <li><a href="/files/Resume.pdf" class="navbar-item underlineText" target="_blank">Resume</a></li>
-                    <li><a href="#contact" class="navbar-item underlineText">Contact</a></li>
-                </ul>
-            </div>
+                <!-- Mobile Navbar -->
+                <div id="hamburger-menu" onclick="openMobileMenu(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <ul class="mobile-menu">
+                        <li><a href="#projects" class="navbar-item underlineText">Projects</a></li>
+                        <li><a href="/files/Resume.pdf" class="navbar-item underlineText" target="_blank">Resume</a>
+                        </li>
+                        <li><a href="#contact" class="navbar-item underlineText">Contact</a></li>
+                    </ul>
+                </div>
 
-        </nav>
-    </header>
+            </nav>
+        </header>
 
-    <!-- Main Container -->
-    <main>
-        <section id="landing-page">
-            <div class="wrapper">
-                <div class="left">
-                    <h3>
-                        <span class="yellow">console.log</span><span class="pink">(</span><span
-                            class="orange">"Hello"</span><span class="pink">)</span>;
-                    </h3>
-                    <div class="quick-links">
-                        <a href="/github">
-                            <i class="fa-brands fa-github fa-3x"></i>
-                        </a>
-                        <a href="/linkedin">
-                            <i class="fa-brands fa-linkedin fa-3x"></i>
-                        </a>
+        <!-- Main Container -->
+        <main>
+            <section id="landing-page">
+                <div class="wrapper">
+                    <div class="left">
+                        <h3>
+                            <span class="yellow">console.log</span><span class="pink">(</span><span
+                                class="orange">"Hello"</span><span class="pink">)</span>;
+                        </h3>
+                        <div class="quick-links">
+                            <a href="/github">
+                                <i class="fa-brands fa-github fa-3x"></i>
+                            </a>
+                            <a href="/linkedin">
+                                <i class="fa-brands fa-linkedin fa-3x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right" id="scene">
+                        <div class="hero-img" data-depth="0.5"></div>
                     </div>
                 </div>
-                <div class="right" id="scene">
-                    <div class="hero-img" data-depth="0.5"></div>
+                <a class="scroll-down" href="#introduction">
+                    <i class="fa-solid fa-angle-down fa-4x fa-bounce" style="color: #ffffff;"></i>
+                    <p class="text">Scroll Down!</p>
+                </a>
+            </section>
+            <section id="introduction">
+                <div class="intro-left">
+                    <div class="intro-img">
+                        <img src="/Assets/imgs/snap.jpg" alt="">
+                    </div>
                 </div>
-            </div>
-            <a class="scroll-down" href="#introduction">
-                <i class="fa-solid fa-angle-down fa-4x fa-bounce" style="color: #ffffff;"></i>
-                <p class="text">Scroll Down!</p>
-            </a>
-        </section>
-        <section id="introduction">
-            <div class="intro-left">
-                <div class="intro-img">
-                    <img src="/Assets/imgs/snap.jpg" alt="">
-                </div>
-            </div>
-            <div class="intro-right">
-                <h1 class="title">About Me:</h1>
-                <p class="bold-header">
-                    <%= aboutMe.title %>
-                </p>
-                <br>
-
-                <% aboutMe.description.forEach(function(desc) { %>
-                    <p class="description">
-                        <%= desc %>
+                <div class="intro-right">
+                    <h1 class="title">About Me:</h1>
+                    <p class="bold-header">
+                        <%= aboutMe.title %>
                     </p>
-                    <% }) %>
-                        <br>
-                        <br>
-                        <div id="tech-stack">
-                            <p class="header">Tech Stack</p>
-                            <span>|</span>
-                            <div class="tech-icons">
-                                <ul>
-                                    <li><img title="HTML5" src="/Assets/svgs/html.svg" draggable="false" alt=""><span
-                                            class="tooltiptext">HTML5</span></li>
-                                    <li><img title="CSS3" src="/Assets/svgs/css3.svg" draggable="false" alt=""><span
-                                            class="tooltiptext">CSS3</span></li>
-                                    <li><img title="Javascript" src="/Assets/svgs/javascript.svg" draggable="false"
-                                            alt=""><span class="tooltiptext">Javascript</span></li>
-                                    <li><img title="React" src="/Assets/svgs/react.svg" draggable="false" alt=""><span
-                                            class="tooltiptext">React</span></li>
-                                    <li><img title="Sass/Scss" src="/Assets/svgs/scss.svg" draggable="false"
-                                            alt=""><span class="tooltiptext">Sass/Scss</span></li>
-                                    <li><img title="NodeJS" src="/Assets/svgs/nodejs.svg" draggable="false" alt=""><span
-                                            class="tooltiptext">NodeJS</span></li>
-                                    <li><img title="MongoDB" src="/Assets/svgs/mongodb.svg" draggable="false"
-                                            alt=""><span class="tooltiptext">MongoDB</span></li>
-                                </ul>
-                            </div>
-                        </div>
-            </div>
-        </section>
+                    <br>
 
-        <section id="projects">
-            <h1 class="title">Projects</h1>
-
-            <div id="projects-gallery" class="projects-gallery">
-
-                <% projects.forEach(function(project){ %>
-
-                    <% if(project.projectId % 2 !=0){ %>
-                        <div class="project project-reverse" onmouseover="scrollImage(this)"
-                            onmouseout="returnImage(this)">
-
-                            <% } else { %>
-                                <div class="project" onmouseover="scrollImage(this)" onmouseout="returnImage(this)">
-                                    <% }%>
-
-                                        <div class="proj-desc">
-                                            <div>
-                                                <h2 class="project-title">
-                                                    <%= project.name %>
-                                                </h2>
-                                                <p class="project-description">
-                                                    <%= project.description %>
-                                                </p>
-                                            </div>
-                                            <div class="proj-btns">
-                                                <% if(project.code) { %>
-                                                    <a target="_blank" href="<%=project.code%>">Code <i
-                                                            class="fa-brands fa-github"></i></a>
-                                                    <% } %>
-                                                        <!--  -->
-                                                        <% if(project.live) { %>
-                                                            <a target="_blank" href="<%=project.live%>">Live Demo <i
-                                                                    class="fa-solid fa-link"></i></a>
-                                                            <% } %>
-
-                                            </div>
-                                        </div>
-                                        <div class="proj-img">
-                                            <a href="">
-                                                <img src="<%= project.img %>" alt="Project Image">
-                                            </a>
-                                        </div>
+                    <% aboutMe.description.forEach(function(desc) { %>
+                        <p class="description">
+                            <%= desc %>
+                        </p>
+                        <% }) %>
+                            <br>
+                            <br>
+                            <div id="tech-stack">
+                                <p class="header">Tech Stack</p>
+                                <span>|</span>
+                                <div class="tech-icons">
+                                    <ul>
+                                        <li><img title="HTML5" src="/Assets/svgs/html.svg" draggable="false"
+                                                alt=""><span class="tooltiptext">HTML5</span></li>
+                                        <li><img title="CSS3" src="/Assets/svgs/css3.svg" draggable="false" alt=""><span
+                                                class="tooltiptext">CSS3</span></li>
+                                        <li><img title="Javascript" src="/Assets/svgs/javascript.svg" draggable="false"
+                                                alt=""><span class="tooltiptext">Javascript</span></li>
+                                        <li><img title="React" src="/Assets/svgs/react.svg" draggable="false"
+                                                alt=""><span class="tooltiptext">React</span></li>
+                                        <li><img title="Sass/Scss" src="/Assets/svgs/scss.svg" draggable="false"
+                                                alt=""><span class="tooltiptext">Sass/Scss</span></li>
+                                        <li><img title="NodeJS" src="/Assets/svgs/nodejs.svg" draggable="false"
+                                                alt=""><span class="tooltiptext">NodeJS</span></li>
+                                        <li><img title="MongoDB" src="/Assets/svgs/mongodb.svg" draggable="false"
+                                                alt=""><span class="tooltiptext">MongoDB</span></li>
+                                    </ul>
                                 </div>
-                                <% }) %>
+                            </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h1 class="title">Projects</h1>
+
+                <div id="projects-gallery" class="projects-gallery">
+
+                    <% projects.forEach(function(project){ %>
+
+                        <% if(project.projectId % 2 !=0){ %>
+                            <div class="project project-reverse" onmouseover="scrollImage(this)"
+                                onmouseout="returnImage(this)">
+
+                                <% } else { %>
+                                    <div class="project" onmouseover="scrollImage(this)" onmouseout="returnImage(this)">
+                                        <% }%>
+
+                                            <div class="proj-desc">
+                                                <div>
+                                                    <h2 class="project-title">
+                                                        <%= project.name %>
+                                                    </h2>
+                                                    <p class="project-description">
+                                                        <%= project.description %>
+                                                    </p>
+                                                </div>
+                                                <div class="proj-btns">
+                                                    <% if(project.code) { %>
+                                                        <a target="_blank" href="<%=project.code%>">Code <i
+                                                                class="fa-brands fa-github"></i></a>
+                                                        <% } %>
+                                                            <!--  -->
+                                                            <% if(project.live) { %>
+                                                                <a target="_blank" href="<%=project.live%>">Live Demo <i
+                                                                        class="fa-solid fa-link"></i></a>
+                                                                <% } %>
+
+                                                </div>
+                                            </div>
+                                            <div class="proj-img">
+                                                <a href="">
+                                                    <img src="<%= project.img %>" alt="Project Image">
+                                                </a>
+                                            </div>
+                                    </div>
+                                    <% }) %>
+                            </div>
+                            <div class="projs-button">
+                                <a href="/projects">Show More</a>
+                            </div>
+            </section>
+        </main>
+        <footer>
+            <section id="contact">
+                <h1 class="title">Contact</h1>
+                <div class="email">
+                    <a href="/email" target="_blank">
+                        <div class="email-btn-left">
+                            <i class="fa-solid fa-envelope fa-5x" style="color: #ffffff"></i>
                         </div>
-                        <div class="projs-button">
-                            <a href="/projects">Show More</a>
+                        <div class="email-btn-right">
+                            <p id="email-header">Email</p>
+                            <p id="email-id">contact@reubz.io</p>
                         </div>
-        </section>
-    </main>
-    <footer>
-        <section id="contact">
-            <h1 class="title">Contact</h1>
-            <div class="email">
-                <a href="/email" target="_blank">
-                    <div class="email-btn-left">
-                        <i class="fa-solid fa-envelope fa-5x" style="color: #ffffff"></i>
-                    </div>
-                    <div class="email-btn-right">
-                        <p id="email-header">Email</p>
-                        <p id="email-id">contact@reubz.io</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <section id="socials">
-            <div class="copyright">
-                <p>&COPY; 2023 by Reuben George. All Rights Reserved.</p>
-            </div>
-            <div class="socials">
-                <a href="/instagram" target="_blank">
-                    <i class="fa-brands fa-instagram fa-3x" style="color: #ffffff;"></i>
-                </a>
-                <a href="/twitter" target="_blank">
-                    <i class="fa-brands fa-twitter fa-3x" style="color: #ffffff;"></i>
-                </a>
-                <a href="/discord" target="_blank">
-                    <i class="fa-brands fa-discord fa-3x" style="color: #ffffff;"></i>
-                </a>
-                <a href="/github" target="_blank">
-                    <i class="fa-brands fa-github fa-3x" style="color: #ffffff;"></i>
-                </a>
-                <a href="/linkedin" target="_blank">
-                    <i class="fa-brands fa-linkedin fa-3x" style="color: #ffffff;"></i>
-                </a>
-            </div>
-        </section>
+                    </a>
+                </div>
+            </section>
+            <section id="socials">
+                <div class="copyright">
+                    <p>&COPY; 2023 by Reuben George. All Rights Reserved.</p>
+                </div>
+                <div class="socials">
+                    <a href="/instagram" target="_blank">
+                        <i class="fa-brands fa-instagram fa-3x" style="color: #ffffff;"></i>
+                    </a>
+                    <a href="/twitter" target="_blank">
+                        <i class="fa-brands fa-twitter fa-3x" style="color: #ffffff;"></i>
+                    </a>
+                    <a href="/discord" target="_blank">
+                        <i class="fa-brands fa-discord fa-3x" style="color: #ffffff;"></i>
+                    </a>
+                    <a href="/github" target="_blank">
+                        <i class="fa-brands fa-github fa-3x" style="color: #ffffff;"></i>
+                    </a>
+                    <a href="/linkedin" target="_blank">
+                        <i class="fa-brands fa-linkedin fa-3x" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+            </section>
 
 
-    </footer>
+        </footer>
+    </div>
 
 
     <!-- Script Files -->

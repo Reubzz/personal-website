@@ -17,3 +17,17 @@ function returnImage(element) {
     const img = element.children[1].children[0].children[0]; // Selecting the actual image (<image> tag)
     img.style.cssText = `transform: translateY(0%)` // making the translate back to 0 so it scrolls back to the top of the image. 
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    let element = document.getElementById('homepage-wrapper')
+    let loader = document.getElementById('loading-layer')
+
+    //console.log(element) // debug;
+
+    // let ogData = element.innerHTML;
+    // element.innerHTML = loader;
+    setInterval(() => {
+        element.style.display = 'contents';
+        loader.style.display = 'none'
+    }, 1000 * 2.5);
+});
