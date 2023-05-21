@@ -32,11 +32,13 @@ h1 {
 }
 
 a {
-  text-decoration: underline;
-  color: lightblue;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 a:hover {
-  color: bisque;
+  color: #147efb;
+  animation: hoverIcon 0.5s ease-in-out both;
 }
 
 img {
