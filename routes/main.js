@@ -72,7 +72,7 @@ router.get("/:slug", async (req, res) => {
 
 // 404 Page
 router.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../../pages", "error", "404.html")).status(404);
+    res.status(404).sendFile(path.join(__dirname, "../pages", "error", "404.html"));
 });
 
 
