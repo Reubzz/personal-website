@@ -43,8 +43,8 @@ main section {
   position: relative;
   font-size: 7vw;
   color: transparent;
-  stroke: 0.2vw #5588ff;
-  -webkit-text-stroke: 0.2vw #5588ff;
+  stroke: 0.2vw rgba(217, 217, 217, 0.6196078431);
+  -webkit-text-stroke: 0.2vw rgba(217, 217, 217, 0.6196078431);
   text-transform: uppercase;
 }
 #loading-layer h1::before {
@@ -55,7 +55,7 @@ main section {
   width: 0;
   height: 100%;
   color: #147efb;
-  stroke: 0.2vw #5588ff;
+  stroke: 0.2vw #147efb;
   -webkit-text-stroke: 0.2vw #147efb;
   border-right: 5px solid #147efb;
   overflow: hidden;

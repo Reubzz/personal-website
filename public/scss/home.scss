@@ -92,8 +92,8 @@ main {
         position: relative;
         font-size: 7vw;
         color: transparent;
-        stroke: 0.2vw $blueLight;
-        -webkit-text-stroke: 0.2vw $blueLight;
+        stroke: 0.2vw $bgWhiteSmoked;
+        -webkit-text-stroke: 0.2vw $bgWhiteSmoked;
         text-transform: uppercase;
         &::before {
             content: attr(data-text);
@@ -103,7 +103,7 @@ main {
             width: 0;
             height: 100%;
             color: $blue;
-            stroke: 0.2vw $blueLight;
+            stroke: 0.2vw $blue;
             -webkit-text-stroke: 0.2vw $blue;
             border-right: 5px solid $blue;
             overflow: hidden;
