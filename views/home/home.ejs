@@ -111,7 +111,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="right" id="scene">
+                    <div class="right scene" id="scene">
                         <div class="hero-img" data-depth="0.5"></div>
                     </div>
                 </div>
@@ -265,11 +265,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        var scene = document.getElementById('scene');
-        var parallax = new Parallax(scene, {
-            relativeInput: true,
-            clipRelativeInput: true
-        });
+        if (!(/Mobi/i.test(window.navigator.userAgent))) {
+            let scene = document.getElementsByClassName('scene')[0];
+            let parallax = new Parallax(scene, {
+                relativeInput: true,
+                clipRelativeInput: true
+            });
+        }
     </script>
 </body>
 
