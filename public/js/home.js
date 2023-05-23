@@ -19,15 +19,11 @@ function returnImage(element) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let element = document.getElementById('homepage-wrapper')
-    let loader = document.getElementById('loading-layer')
+    let MainHomepageData = document.getElementById('homepage-wrapper')
+    let HomepageLoader = document.getElementById('loading-layer')
 
-    //console.log(element) // debug;
-
-    // let ogData = element.innerHTML;
-    // element.innerHTML = loader;
     setInterval(() => {
-        element.style.display = 'contents';
-        loader.style.display = 'none'
+        MainHomepageData.style.display = 'contents';
+        HomepageLoader.style.display = 'none'
     }, 1000 * 2.5);
 });
