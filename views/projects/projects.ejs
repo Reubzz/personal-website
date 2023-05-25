@@ -41,7 +41,26 @@
 </head>
 
 <body>
+    <!-- Incase User has Javascript Disabled -->
+    <noscript>
+        <style type="text/css">
+            #loading-layer {
+                display: none;
+            }
 
+            #homepage-wrapper {
+                display: contents;
+            }
+
+            #noscriptmsg {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+        </style>
+        <p id="noscriptmsg">
+            You don't have javascript enabled. It is recommended to enable Javascript for max usablity of this website.
+        </p>
+    </noscript>
     <header>
         <header>
             <nav>
