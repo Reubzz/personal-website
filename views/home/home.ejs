@@ -54,6 +54,26 @@
 </head>
 
 <body>
+    <!-- Incase User has Javascript Disabled -->
+    <noscript>
+        <style type="text/css">
+            #loading-layer {
+                display: none;
+            }
+
+            #homepage-wrapper {
+                display: contents;
+            }
+
+            #noscriptmsg {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+        </style>
+        <p id="noscriptmsg">
+            You don't have javascript enabled. It is recommended to enable Javascript for max usablity of this website.
+        </p>
+    </noscript>
     <div id="loading-layer">
         <div class="loading-container">
             <h1 id="loading-data" data-text="reubz">reubz</h1>
@@ -129,7 +149,7 @@
                 <div class="intro-right">
                     <h1 class="title">About Me:</h1>
                     <p class="bold-header">
-                        <%= aboutMe.title %>
+                        <%- aboutMe.title %>
                     </p>
                     <br>
 
@@ -264,6 +284,7 @@
     <script src="/js/common.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
         if (!(/Mobi/i.test(window.navigator.userAgent))) {
             let scene = document.getElementsByClassName('scene')[0];
@@ -272,6 +293,16 @@
                 clipRelativeInput: true
             });
         }
+    </script>
+    <script>
+        var typed = new Typed('#typing-text', {
+            strings: ['Web Developer^1000', 'Web Designer^1000'],
+            typeSpeed: 70,
+            loop: true,
+            loopCount: Infinity,
+            backSpeed: 50,
+            smartBackspace: true
+        });
     </script>
 </body>
 
