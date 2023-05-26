@@ -1,8 +1,12 @@
 function deleteLink(linkId) {
-    window.location.assign("/urlshortner/delete/" + linkId)
+    let confirmation = confirm("Are you sure you want to Delete this shortened link?")
+    if (confirmation)
+        return window.location.assign("/urlshortner/delete/" + linkId)
 }
 function disableLink(linkId) {
-    window.location.assign("/urlshortner/disable/" + linkId)
+    let confirmation = confirm("Are you sure you want to Disable this shortened link?")
+    if (confirmation)
+        return window.location.assign("/urlshortner/disable/" + linkId)
 }
 function openMobileMenu(menu) {
     menu.classList.toggle('open')
