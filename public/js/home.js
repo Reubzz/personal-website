@@ -25,5 +25,5 @@ document.addEventListener('DOMContentLoaded', function () {
     setInterval(() => {
         MainHomepageData.style.display = 'contents';
         HomepageLoader.style.display = 'none'
-    }, 1000 * 2.5);
+    }, 1000 * 2);
 });
