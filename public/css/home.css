@@ -126,7 +126,7 @@ main section {
   align-items: center;
 }
 #landing-page div .right .hero-img {
-  background-image: url("/Assets/imgs/pfp.png");
+  background-image: url("/Assets/imgs/pfp.webp");
   width: 32rem;
   height: 32rem;
   background-size: cover;
