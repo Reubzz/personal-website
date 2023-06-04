@@ -4,7 +4,8 @@
   "description": "Personal Website - https://www.reubz.tk",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Reuben George (Reubz)",
   "license": "MIT",
