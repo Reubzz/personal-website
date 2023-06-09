@@ -59,7 +59,16 @@ router.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
 
-
+router.get("/register", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/user control/register.html"))
+})
+router.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/user control/login.html"))
+})
+router.get("/logout", (req, res) => {
+    res.cookie("jwt", "", { maxAge: "1" })
+    res.redirect("back")
+})
 
 // URL SHORTNER 
 // For Url Shortner to work

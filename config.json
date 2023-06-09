@@ -7,5 +7,6 @@
     "linkedin": "https://linkedin.com/in/reubenjgeorge/"
   },
   "domain": "reubz.io",
-  "email": "mailto:contact@reubz.io"
+  "email": "mailto:contact@reubz.io",
+  "loginMaxAge": 1296000
 }

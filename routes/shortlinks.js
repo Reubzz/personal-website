@@ -6,17 +6,25 @@ const shortlinksdb = require('../models/schemas/shortlinks')
 const bodyParser = require('body-parser')
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
+// MiddleWares
+const { authCheck } = require("../middleware/authentication/auth")
+
 require('dotenv').config();
 
-router.get('/', async (req, res) => {
+router.get('/', authCheck, async (req, res) => {
     await sendMainPage({
         req: req,
         res: res,
-        error: 0
+        error: 0,
+        user: {
+            id: res.locals.userId,
+            role: res.locals.userRole,
+            username: res.locals.userName
+        }
     })
 })
 
-router.post('/', urlEncodedParser, async (req, res) => {
+router.post('/', urlEncodedParser, authCheck, async (req, res) => {
 
     const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
     if (initialCheck) {
@@ -34,6 +42,11 @@ router.post('/', urlEncodedParser, async (req, res) => {
         disabled: false,
         createdAt: new Date().getTime(),
         [req.body.expiryTime]: new Date(),
+        createdBy: {
+            id: res.locals.userId,
+            username: res.locals.userName,
+            role: res.locals.userRole
+        }
     })
     await newEntry
         .save()
@@ -42,7 +55,12 @@ router.post('/', urlEncodedParser, async (req, res) => {
             await sendConfirmedPage({
                 req: req,
                 res: res,
-                error: 0
+                error: 0,
+                user: {
+                    id: res.locals.userId,
+                    role: res.locals.userRole,
+                    username: res.locals.userName
+                }
             })
         })
 })
@@ -72,21 +90,34 @@ function getUniqueId() {
     return Math.random().toString(36).slice(2);
 }
 
-async function sendMainPage({ req, res, error }) {
+async function sendMainPage({ req, res, error, user }) {
+
+    console.log(user)
+
     res.status(200).render("urlshortner/urlshortnermain", {
-        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
-        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
+        allLinks: await shortlinksdb.find({ disabled: false, "createdBy.id": user.id }).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find({ disabled: true, "createdBy.id": user.id }).sort({ createdAt: -1 }),
         domain: config.domain,
-        error: error
+        error: error,
+        user: {
+            username: user.username,
+            id: user.id,
+            role: user.role
+        }
     })
 }
-async function sendConfirmedPage({ req, res, error }) {
+async function sendConfirmedPage({ req, res, error, user }) {
     res.status(200).render('urlshortner/urlconfirmed', {
         data: req.body,
         domain: config.domain,
-        allLinks: await shortlinksdb.find({ disabled: false }).sort({ createdAt: -1 }),
-        disabledLinks: await shortlinksdb.find({ disabled: true }).sort({ createdAt: -1 }),
+        allLinks: await shortlinksdb.find({ disabled: false, "createdBy.id": user.id }).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find({ disabled: true, "createdBy.id": user.id }).sort({ createdAt: -1 }),
         error: error,
+        user: {
+            username: user.username,
+            id: user.id,
+            role: user.role
+        }
     })
 }
 

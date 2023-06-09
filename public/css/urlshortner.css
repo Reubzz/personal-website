@@ -305,6 +305,15 @@ nav {
   text-align: center;
   width: 100%;
 }
+
+.expiry-btn-hover {
+  cursor: default !important;
+  color: var(--text-grey) !important;
+}
+#helptext {
+  font-family: var(--font-nunito) !important;
+  color: var(--text-white) !important;
+}
 #submit-btn {
   border-radius: 5px;
   border-color: transparent;
