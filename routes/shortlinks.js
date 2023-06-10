@@ -92,8 +92,6 @@ function getUniqueId() {
 
 async function sendMainPage({ req, res, error, user }) {
 
-    console.log(user)
-
     res.status(200).render("urlshortner/urlshortnermain", {
         allLinks: await shortlinksdb.find({ disabled: false, "createdBy.id": user.id }).sort({ createdAt: -1 }),
         disabledLinks: await shortlinksdb.find({ disabled: true, "createdBy.id": user.id }).sort({ createdAt: -1 }),
