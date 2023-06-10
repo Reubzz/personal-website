@@ -5,49 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+
+    <!-- Meta Tags -->
+    <!-- Website Title -->
+    <title>Register - Reuben George</title>
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="https://reubz.io/Assets/imgs/pfp.webp" type="image/x-icon">
+
+    <!-- Primary Tags -->
+    <meta name="title" content="Reuben George">
+    <meta name="description" content="Not a Register User? Register Here.">
+
+    <!-- Open Graph / Facebook / Insta -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reubz.io/register">
+    <meta property="og:title" content="Register - Reuben George">
+    <meta property="og:description" content="Not a Registered User? Register Here.">
+    <meta property="og:image" content="https://reubz.io/Assets/imgs/pfp.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://reubz.io/register">
+    <meta property="twitter:title" content="Register - Reuben George">
+    <meta property="twitter:description" content="Not a Registered User? Login Here.">
+    <meta property="twitter:image" content="https://reubz.io/Assets/imgs/pfp.webp">
+
+    <!-- For Discord Embeds -->
+    <meta content="#202020" data-react-helmet="true" name="theme-color" />
+
+    <!-- Css files -->
+    <link rel="stylesheet" href="/css/auth-page.css">
+    <link rel="stylesheet" href="/css/common.css">
+
 </head>
 
 <body>
-    <h1>Register Page</h1>
-    <form>
-        <div class="error" style="background-color: red;"></div>
-        <br />
-        <label for="username">Username</label><br />
-        <input type="text" id="username" required /><br />
-        <label for="email">Email</label><br />
-        <input type="text" id="email" required /><br />
-        <label for="password">Password</label><br />
-        <input type="password" id="password" required /><br />
-        <input type="submit" value="register" /><br />
-    </form>
-    <a href="/login">Already registered? Login</a>
-
-    <script>
-        const form = document.querySelector('form')
-        const username = document.querySelector('#username')
-        const password = document.querySelector('#password')
-        const email = document.querySelector('#email')
-        const display = document.querySelector('.error')
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault()
-            display.textContent = ''
-            try {
-                const res = await fetch('/api/auth/register', {
-                    method: 'POST',
-                    body: JSON.stringify({ username: username.value, password: password.value, email: email.value }),
-                    headers: { 'Content-Type': 'application/json' }
-                })
-                const data = await res.json()
-                if (res.status === 400 || res.status === 401) {
-                    return display.textContent = `${data.error.code}. ${(data.error.code != 100) ? data.error.message : ''}`
-                }
-                data.role === "basic" ? location.assign('/') : location.assign('/')
-            } catch (err) {
-                console.log(err.message)
+    <!-- Incase User has Javascript Disabled -->
+    <noscript>
+        <style type="text/css">
+            #wrapper {
+                display: none;
             }
-        })
-    </script>
+        </style>
+        <div id="noscriptmsg-container">
+            <p id="noscriptmsg">
+                You don't have javascript enabled. It is required to enable Javascript to Login/Register.
+            </p>
+        </div>
+    </noscript>
+    <div id="wrapper">
+        <div id="form-container">
+            <h1 class="title">Register</h1>
+            <form id="form">
+                <div id="error"></div>
+                <br />
+                <div class="form-inputs-container">
+                    <div class="username inputs">
+                        <label for="username">Username</label><br />
+                        <input type="text" id="username" required /><br />
+
+                    </div>
+                    <div class="email inputs">
+                        <label for="email">Email</label><br />
+                        <input type="text" id="email" required /><br />
+                    </div>
+                    <div class="password inputs">
+                        <label for="password">Password</label><br />
+                        <input type="password" id="password" required /><br />
+                    </div>
+                    <div class="submit-btn">
+                        <input id="submit-btn" class="button" type="submit" value="Register" /><br />
+                    </div>
+                </div>
+            </form>
+            <div class="other-links">
+                <a id="page-link" href="/login">Already registered? Login</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/auth-page.js"></script>
 </body>
 
 </html>

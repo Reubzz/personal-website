@@ -30,19 +30,19 @@ const { loginMaxAge } = require('../../../config.json')
 
 const error = {
     100: {
-        messsage: "no error",
+        message: "no error",
         code: 100
     },
     101: {
-        messsage: "username incorrect (no user found)",
+        message: "username incorrect (no user found)",
         code: 101
     },
     102: {
-        messsage: "password incorrect (username correct / pass incorrect)",
+        message: "password incorrect",
         code: 102
     },
     103: {
-        messsage: "Username or Password not present",
+        message: "Username or Password not present",
         code: 103
     },
     109: {
