@@ -39,7 +39,9 @@ router.get("/honestly", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages", "fun pages", "to be honest", "index.html"))
 })
 
-
+/**
+ * Static Urls
+ */
 router.get("/instagram", (req, res) => {
     res.redirect(config.socials.instagram);
 });
@@ -58,7 +60,13 @@ router.get("/github", (req, res) => {
 router.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
+router.get("/resume", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "files", "resume.pdf"))
+});
 
+/**
+ * User Auth Flow urls
+ */
 router.get("/register", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages/user control/register.html"))
 })
