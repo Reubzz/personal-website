@@ -93,8 +93,8 @@ function getUniqueId() {
 async function sendMainPage({ req, res, error, user }) {
 
     res.status(200).render("urlshortner/urlshortnermain", {
-        allLinks: await shortlinksdb.find({ disabled: false, "createdBy.id": user.id }).sort({ createdAt: -1 }),
-        disabledLinks: await shortlinksdb.find({ disabled: true, "createdBy.id": user.id }).sort({ createdAt: -1 }),
+        allLinks: await shortlinksdb.find(selectFilter({ disabled: false, userId: user.id, userRole: user.role })).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find(selectFilter({ disabled: true, userId: user.id, userRole: user.role })).sort({ createdAt: -1 }),
         domain: config.domain,
         error: error,
         user: {
@@ -108,8 +108,8 @@ async function sendConfirmedPage({ req, res, error, user }) {
     res.status(200).render('urlshortner/urlconfirmed', {
         data: req.body,
         domain: config.domain,
-        allLinks: await shortlinksdb.find({ disabled: false, "createdBy.id": user.id }).sort({ createdAt: -1 }),
-        disabledLinks: await shortlinksdb.find({ disabled: true, "createdBy.id": user.id }).sort({ createdAt: -1 }),
+        allLinks: await shortlinksdb.find(selectFilter({ disabled: false, userId: user.id, userRole: user.role })).sort({ createdAt: -1 }),
+        disabledLinks: await shortlinksdb.find(selectFilter({ disabled: true, userId: user.id, userRole: user.role })).sort({ createdAt: -1 }),
         error: error,
         user: {
             username: user.username,
@@ -117,6 +117,37 @@ async function sendConfirmedPage({ req, res, error, user }) {
             role: user.role
         }
     })
+}
+
+function selectFilter(options = {}) {
+    options.disabled ??= false // ??= means default value if no option is provided. 
+    options.userId ??= null
+    options.userRole ??= 'default'
+
+    let filter = {};
+
+    if (options.userRole == 'default') {
+        return filter = {
+            "createdBy.id": 0
+        }
+    }
+
+    if (options.userRole == 'basic') {
+        return filter = {
+            disabled: options.disabled,
+            "createdBy.id": options.userId
+        }
+    }
+
+    if (options.userRole == 'admin') {
+        return filter = {
+            disabled: options.disabled
+        }
+    }
+
+    return filter = {
+        "createdBy.id": 0
+    }
 }
 
 module.exports = router;
