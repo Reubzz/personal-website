@@ -41,6 +41,7 @@
             <div class="navbar navbar-start">
                 <ul>
                     <li><a href="/" class="navbar-item"><i class="fa-solid fa-home"></i> Home</a></li>
+                    <li><a href="#all-links" class="navbar-item"><i class="fa-solid fa-link"></i> All Links</a></li>
                 </ul>
             </div>
             <div class="navbar logo-brand navbar-center iss-hidden">
@@ -51,6 +52,13 @@
             <div class="navbar navbar-end">
                 <ul>
                     <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                    <% if(user.id==undefined) {%>
+                        <li><a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>
+                                Login</a></li>
+                        <% } else { %>
+                            <li><a href="/logout" class="navbar-item"><i class="fa-solid fa-right-from-bracket"></i>
+                                    Logout</a></li>
+                            <% } %>
                 </ul>
             </div>
             <div id="hamburger-menu" onclick="openMobileMenu(this)">
@@ -60,6 +68,13 @@
                 <ul class="mobile-menu">
                     <li><a class="navbar-item" href="/"><i class="fa-solid fa-home"></i> Home</a></li>
                     <li><a class="navbar-item" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                    <% if(user.id==undefined) {%>
+                        <li><a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>
+                                Login</a></li>
+                        <% } else { %>
+                            <li><a href="/logout" class="navbar-item"><i class="fa-solid fa-right-from-bracket"></i>
+                                    Logout</a></li>
+                            <% } %>
                 </ul>
             </div>
         </nav>
