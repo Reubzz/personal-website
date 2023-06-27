@@ -82,9 +82,12 @@ router.get('/disable/:id', async (req, res) => {
     });
 })
 
-// actual url redirecter shifted to routes/main.js as it won't work if placed here. 
-// due to Routers - if url redirecter is placed here the link would be --> reubz.io/urlshorter/<slug_here>
-// to avoid this it is placed in routes/main.js, hence now the link works as intended --> reubz.io/<slug_here>
+/**
+ * 
+ * * actual url redirecter shifted to routes/main.js as it won't work if placed here.
+ * * due to Routers - if url redirecter is placed here the link would be --> reubz.io/urlshorter/<slug_here>
+ * * to avoid this it is placed in routes/main.js, hence now the link works as intended --> reubz.io/<slug_here>
+ */
 
 function getUniqueId() {
     return Math.random().toString(36).slice(2);
