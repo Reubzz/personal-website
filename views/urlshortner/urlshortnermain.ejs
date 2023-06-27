@@ -58,8 +58,12 @@
                         <li><a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>
                                 Login</a></li>
                         <% } else { %>
-                            <li><a href="/logout" class="navbar-item"><i class="fa-solid fa-right-from-bracket"></i>
-                                    Logout</a></li>
+                            <li><a id="logout-btn" onmouseover="logoutHover()"
+                                    onmouseleave="logoutHoverLeave( '<%= user.username %>' , '<%= user.id %>', '<%= user.role %>' )"
+                                    href="/logout" class="navbar-item">
+                                    <i class="fa-solid fa-user"></i>
+                                    <%= user.username %>
+                                </a></li>
                             <% } %>
 
 

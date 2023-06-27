@@ -13,3 +13,17 @@ function openMobileMenu(menu) {
 }
 if (window.history.replaceState)
     window.history.replaceState(null, null, window.location.href);
+
+
+const userLogoutBtn = document.getElementById('logout-btn');
+
+function logoutHover() {
+    const logoutIcon = '<i class="fa-solid fa-right-from-bracket"></i>';
+
+    userLogoutBtn.innerHTML = `${logoutIcon} logout`;
+}
+
+function logoutHoverLeave(username, userId, userRole) {
+    const userIcon = '<i class="fa-solid fa-user"></i>';
+    userLogoutBtn.innerHTML = `${userIcon} ${username}`
+}
