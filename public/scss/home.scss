@@ -139,7 +139,7 @@ main {
             flex-direction: column;
             justify-content: center;
             // align-items: center;
-            h3 {
+            h1 {
                 font-size: 4rem;
                 .yellow {
                     color: $yellow;
@@ -406,7 +406,7 @@ main {
                 display: flex;
                 justify-content: center;
                 padding: 20px;
-                a {
+                div {
                     border-radius: 10px;
                     overflow-y: hidden;
                     cursor: auto;

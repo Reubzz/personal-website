@@ -91,16 +91,16 @@ main section {
   flex-direction: column;
   justify-content: center;
 }
-#landing-page div .left h3 {
+#landing-page div .left h1 {
   font-size: 4rem;
 }
-#landing-page div .left h3 .yellow {
+#landing-page div .left h1 .yellow {
   color: #FEE89C;
 }
-#landing-page div .left h3 .orange {
+#landing-page div .left h1 .orange {
   color: #FF9E58;
 }
-#landing-page div .left h3 .pink {
+#landing-page div .left h1 .pink {
   color: #F154FF;
 }
 #landing-page div .left .quick-links {
@@ -342,7 +342,7 @@ main section {
   justify-content: center;
   padding: 20px;
 }
-#projects .projects-gallery .project .proj-img a {
+#projects .projects-gallery .project .proj-img div {
   border-radius: 10px;
   overflow-y: hidden;
   cursor: auto;
