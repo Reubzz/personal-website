@@ -39,6 +39,10 @@ router.get("/honestly", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages", "fun pages", "to be honest", "index.html"))
 })
 
+router.get("/atu", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "fun pages", "atu", "index.html"))
+})
+
 /**
  * Static Urls
  */
