@@ -138,7 +138,9 @@ main {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            // align-items: center;
+            align-items: flex-start;
+	    gap: 10px;
+	    padding: 10px 25px;
             h1 {
                 font-size: 4rem;
                 .yellow {
@@ -155,7 +157,6 @@ main {
                 display: flex;
                 width: 100%;
                 gap: 10px;
-                padding: 10px 25px;
                 a {
                     text-decoration: none;
                     i {
