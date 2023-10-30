@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
-  "version": "2.1.0",
-  "description": "Personal Website - https://www.reubz.tk",
+  "version": "2.2.0",
+  "description": "Personal Website - https://www.reubz.io",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -24,6 +24,6 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.22"
   }
 }
