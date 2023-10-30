@@ -31,7 +31,12 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
         return await sendMainPage({
             req: req,
             res: res,
-            error: 1
+            error: 1,
+            user: {
+                id: res.locals.userId,
+                role: res.locals.userRole,
+                username: res.locals.userName
+            }
         })
     }
 
