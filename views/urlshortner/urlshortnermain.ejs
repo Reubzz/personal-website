@@ -55,16 +55,18 @@
                 <ul>
                     <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
                     <% if(user.id==undefined) {%>
-                        <li><a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>
-                                Login</a></li>
-                        <% } else { %>
-                            <li><a id="logout-btn" onmouseover="logoutHover()"
-                                    onmouseleave="logoutHoverLeave( '<%= user.username %>' , '<%= user.id %>', '<%= user.role %>' )"
-                                    href="/logout" class="navbar-item">
-                                    <i class="fa-solid fa-user"></i>
-                                    <%= user.username %>
-                                </a></li>
-                            <% } %>
+                        <li>
+                            <a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+                        </li>
+                    <% } else { %>
+                        <li><a id="logout-btn" onmouseover="logoutHover()"
+                                onmouseleave="logoutHoverLeave( '<%= user.username %>' , '<%= user.id %>', '<%= user.role %>' )"
+                                href="/logout" class="navbar-item">
+                                <i class="fa-solid fa-user"></i>
+                                <%= user.username %>
+                            </a>
+                        </li>
+                    <% } %>
 
 
 
@@ -78,12 +80,14 @@
                     <li><a class="navbar-item" href="/"><i class="fa-solid fa-home"></i> Home</a></li>
                     <li><a class="navbar-item" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
                     <% if(user.id==undefined) {%>
-                        <li><a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>
-                                Login</a></li>
-                        <% } else { %>
-                            <li><a href="/logout" class="navbar-item"><i class="fa-solid fa-right-from-bracket"></i>
-                                    Logout</a></li>
-                            <% } %>
+                        <li>
+                            <a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+                        </li>
+                    <% } else { %>
+                        <li>
+                            <a href="/logout" class="navbar-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </nav>
@@ -114,24 +118,13 @@
                 <div class="spacebar"></div>
                 <label class="labels">Expires In: </label>
                 <div class="radio">
-                    <input label="12 Hours" type="radio" id="12-Hours" name="expiryTime" value="expireAt12H">
+                    <input label="12 Hours" type="radio" id="12-Hours" name="expiryTime" value="expireAt12H" checked>
                     <input label="1 Day" type="radio" id="1-Day" name="expiryTime" value="expireAt1D">
                     <input label="3 Days" type="radio" id="3-Day" name="expiryTime" value="expireAt3D">
                     <input label="1 Week" type="radio" id="1-Week" name="expiryTime" value="expireAt1W">
                     <input label="2 Weeks" type="radio" id="2-Week" name="expiryTime" value="expireAt2W">
                     <input label="1 Month" type="radio" id="1-Month" name="expiryTime" value="expireAt1M">
                     <input label="Never" type="radio" id="null" name="expiryTime" value="null">
-                </div>
-                <div class="dropdown">
-                    <select name="expiry" id="expiry">
-                        <option label="12 Hours" id="12-Hours-mobile" name="expiryTime" value="expireAt12H">12 Hours</option>
-                        <option label="1 Day" id="1-Day-mobile" name="expiryTime" value="expireAt1D">1 Day</option>
-                        <option label="3 Days" id="3-Day-mobile" name="expiryTime" value="expireAt3D">3 Days</option>
-                        <option label="1 Week" id="1-Week-mobile" name="expiryTime" value="expireAt1W">1 Week</option>
-                        <option label="2 Weeks" id="2-Week-mobile" name="expiryTime" value="expireAt2W">2 Weeks</option>
-                        <option label="1 Month" id="1-Month-mobile" name="expiryTime" value="expireAt1M">1 Month</option>
-                        <option label="Never" id="null-mobile" name="expiryTime" value="null">Never</option>
-                    </select>
                 </div>
                 <br>
                 <div id="helptext"></div>
@@ -170,33 +163,33 @@
                     </div>
                     <% }); %>
             </div>
-            <% } %>
+        <% } %>
 
-                <% if(disabledLinks.length> 0) { %>
-                    <h3 class="title nunito">Disabled Links</h3>
-                    <div class="all-links">
-                        <% disabledLinks.forEach(function(link){ %>
-                            <div class="alink-card">
-                                <div class="alinks">
-                                    <a class="alink-customurl alink" target="_blank"
-                                        href="https://<%=domain%>/<%=link.slug%>">
-                                        <%=domain%>/<%=link.slug%>
-                                    </a>
+        <% if(disabledLinks.length> 0) { %>
+            <h3 class="title nunito">Disabled Links</h3>
+            <div class="all-links">
+                <% disabledLinks.forEach(function(link){ %>
+                    <div class="alink-card">
+                        <div class="alinks">
+                            <a class="alink-customurl alink" target="_blank"
+                                href="https://<%=domain%>/<%=link.slug%>">
+                                <%=domain%>/<%=link.slug%>
+                            </a>
 
-                                    <a href="<%=link.href%>" target="_blank" class="alink-href alink">
-                                        <%=link.href%>
-                                    </a>
-                                </div>
-                                <div class="buttons">
-                                    <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
-                                            class="fa-regular fa-eye"></i></button>
-                                    <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
-                                            class="fa-regular fa-trash-can"></i></button>
-                                </div>
-                            </div>
-                            <% }); %>
+                            <a href="<%=link.href%>" target="_blank" class="alink-href alink">
+                                <%=link.href%>
+                            </a>
+                        </div>
+                        <div class="buttons">
+                            <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                                    class="fa-regular fa-eye"></i></button>
+                            <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
+                                    class="fa-regular fa-trash-can"></i></button>
+                        </div>
                     </div>
-                    <% } %>
+                    <% }); %>
+            </div>
+        <% } %>
     </section>
 
 
@@ -234,32 +227,33 @@
 
     <script src="/js/urlshortner.js"></script>
     <script src="https://kit.fontawesome.com/4d3f484b6f.js" crossorigin="anonymous"></script>
+    <!-- Error 1 means the url slug is already in use -->
     <% if(error==1) { %>
         <script>
             alert("Short Name already in use!")
         </script>
+    <% } %>
+
+    <% if(user.role=="default" ) { %>
+
+        <script>
+            let arrayOfBtns = [
+                document.getElementById('2-Week'),
+                document.getElementById('1-Month'),
+                document.getElementById('null'),
+                document.getElementById('2-Week-mobile'),
+                document.getElementById('1-Month-mobile'),
+                document.getElementById('null-mobile'),
+            ]
+            arrayOfBtns.forEach((btn) => {
+                btn.disabled = true;
+                btn.classList.add("expiry-btn-hover")
+                btn.onclick = function () { alert("You need to login to have higher Expiry Dates") }
+            })
+            document.getElementById("helptext").textContent = "You need to login to have higher Expiry Dates"
+        </script>
+
         <% } %>
-
-            <% if(user.role=="default" ) { %>
-
-                <script>
-                    let arrayOfBtns = [
-                        document.getElementById('2-Week'),
-                        document.getElementById('1-Month'),
-                        document.getElementById('null'),
-                        document.getElementById('2-Week-mobile'),
-                        document.getElementById('1-Month-mobile'),
-                        document.getElementById('null-mobile'),
-                    ]
-                    arrayOfBtns.forEach((btn) => {
-                        btn.disabled = true;
-                        btn.classList.add("expiry-btn-hover")
-                        btn.onclick = function () { alert("You need to login to have higher Expiry Dates") }
-                    })
-                    document.getElementById("helptext").textContent = "You need to login to have higher Expiry Dates"
-                </script>
-
-                <% } %>
 </body>
 
 </html>
