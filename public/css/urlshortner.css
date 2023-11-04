@@ -332,7 +332,7 @@ nav {
   text-decoration: wavy;
 }
 
-.copy-btn {
+.copy-btn, .download-btn {
   font-family: var(--font-nunito);
   font-size: 20px;
   color: var(--text-white);
@@ -343,8 +343,13 @@ nav {
   border-color: transparent;
 }
 
-.copy-btn:hover {
+.copy-btn:hover, .download-btn:hover {
   cursor: pointer;
+}
+
+.qrcode {
+  width: 200px;
+  border-radius: 15px;
 }
 
 .error {
@@ -544,6 +549,18 @@ footer {
   #hamburger-menu {
     display: block;
     order: 2;
+  }
+  .confirmed-actionbtns-wrapper {
+    text-align: center;
+  }
+  .section1 {
+    padding: 20px 0;
+  }
+  .copy-btn, .download-btn {
+    padding: 10px 20px;
+  }
+  .form-title {
+    margin: 10px;
   }
 }
 

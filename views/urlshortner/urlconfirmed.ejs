@@ -89,11 +89,19 @@
     <div class="spacer layer1"></div>
     <section id="create-link-section" class="section1">
         <div class="form-section">
-            <h1 class="title nunito">Here's Your Shortened Link</h1>
+            <h1 class="title nunito form-title">Here's Your Shortened Link</h1>
             <a class="short-link" href="https://<%=domain%>/<%=data.slug%>">https://<%=domain%>/<%=data.slug%></a>
-            <button class="copy-btn" onclick="copyText()">Copy Text <i class="fa-regular fa-copy"></i></button>
-            <input class="hidden" type="text" value="https://<%=domain%>/<%=data.slug%>" id="myInput">
-            <img src="<%= data.qrcode %>" alt="QR Code" width="300px" class="">
+            <a href="<%= data.qrcode %>" download="<%= data.slug %>">
+                <img src="<%= data.qrcode %>" alt="QR Code" class="qrcode">
+            </a>
+
+            <div class="confirmed-actionbtns-wrapper"    >
+                <button class="copy-btn" onclick="copyText()">Copy Text <i class="fa-regular fa-copy"></i></button>
+                <input class="" style="display: none;" type="text" value="https://<%=domain%>/<%=data.slug%>" id="myInput">
+                <a href="<%= data.qrcode %>" download="<%= data.slug %>">
+                    <button class="download-btn">Download QR Code <i class="fa-solid fa-download"></i></button>
+                </a>
+            </div>
 
         </div>
     </section>
