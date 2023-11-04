@@ -42,7 +42,6 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
     }
 
     const newID = getUniqueId()
-    console.log(qrcode)
     const newEntry = new shortlinksdb({
         id: newID,
         slug: req.body.slug,
