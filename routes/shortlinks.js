@@ -5,6 +5,7 @@ const config = require('../config.json');
 const shortlinksdb = require('../models/schemas/shortlinks')
 const bodyParser = require('body-parser')
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
+const QRCode = require('qrcode');
 
 // MiddleWares
 const { authCheck } = require("../middleware/authentication/auth")
@@ -40,8 +41,10 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
         })
     }
 
+    const newID = getUniqueId()
+    console.log(qrcode)
     const newEntry = new shortlinksdb({
-        id: getUniqueId(),
+        id: newID,
         slug: req.body.slug,
         href: `${req.body.href}`,
         disabled: false,
@@ -51,7 +54,8 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
             id: res.locals.userId,
             username: res.locals.userName,
             role: res.locals.userRole
-        }
+        },
+        qrcode: await QRCode.toDataURL(req.body.href)
     })
     await newEntry
         .save()
@@ -65,7 +69,8 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
                     id: res.locals.userId,
                     role: res.locals.userRole,
                     username: res.locals.userName
-                }
+                },
+                id: newID
             })
         })
 })
@@ -112,9 +117,10 @@ async function sendMainPage({ req, res, error, user }) {
         }
     })
 }
-async function sendConfirmedPage({ req, res, error, user }) {
+async function sendConfirmedPage({ req, res, error, user, id }) {
+    console.log(await shortlinksdb.findOne({ id: id }))
     res.status(200).render('urlshortner/urlconfirmed', {
-        data: req.body,
+        data: await shortlinksdb.findOne({ id: id }),
         domain: config.domain,
         allLinks: await shortlinksdb.find(selectFilter({ disabled: false, userId: user.id, userRole: user.role })).sort({ createdAt: -1 }),
         disabledLinks: await shortlinksdb.find(selectFilter({ disabled: true, userId: user.id, userRole: user.role })).sort({ createdAt: -1 }),
@@ -123,7 +129,7 @@ async function sendConfirmedPage({ req, res, error, user }) {
             username: user.username,
             id: user.id,
             role: user.role
-        }
+        },
     })
 }
 

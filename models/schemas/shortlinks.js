@@ -21,7 +21,8 @@ const model = db.URL_SHORTNER_DB.model(
       id: { type: String },
       username: { type: String },
       role: { type: String }
-    }
+    },
+    qrcode: { type: String }
   })
 );
 
