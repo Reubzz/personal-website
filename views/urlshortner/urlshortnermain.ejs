@@ -234,16 +234,13 @@
         </script>
     <% } %>
 
-    <% if(user.role=="default" ) { %>
+    <% if(user.role != "basic" && user.role != "admin" ) { %>
 
         <script>
             let arrayOfBtns = [
                 document.getElementById('2-Week'),
                 document.getElementById('1-Month'),
                 document.getElementById('null'),
-                document.getElementById('2-Week-mobile'),
-                document.getElementById('1-Month-mobile'),
-                document.getElementById('null-mobile'),
             ]
             arrayOfBtns.forEach((btn) => {
                 btn.disabled = true;
