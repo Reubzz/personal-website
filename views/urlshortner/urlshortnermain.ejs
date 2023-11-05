@@ -56,13 +56,13 @@
                     <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
                     <% if(user.id==undefined) {%>
                         <li>
-                            <a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+                            <a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                         </li>
                     <% } else { %>
                         <li><a id="logout-btn" onmouseover="logoutHover()"
                                 onmouseleave="logoutHoverLeave( '<%= user.username %>' , '<%= user.id %>', '<%= user.role %>' )"
                                 href="/logout" class="navbar-item">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-user"></i> 
                                 <%= user.username %>
                             </a>
                         </li>
