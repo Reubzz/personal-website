@@ -234,7 +234,7 @@
         </script>
     <% } %>
 
-    <% if(user.role != "basic" && user.role != "admin" ) { %>
+    <% if(user.role != "basic" || user.role != "admin" ) { %>
 
         <script>
             let arrayOfBtns = [
