@@ -234,7 +234,7 @@
         </script>
     <% } %>
 
-    <% if(user.role != "basic" || user.role != "admin" ) { %>
+    <% if(user.role == "default") { %>
 
         <script>
             let arrayOfBtns = [
@@ -247,7 +247,7 @@
                 btn.classList.add("expiry-btn-hover")
                 btn.onclick = function () { alert("You need to login to have higher Expiry Dates") }
             })
-            document.getElementById("helptext").textContent = "You need to login to have higher Expiry Dates"
+            document.getElementById("helptext").textContent = "You need to login to have higher Expiry Dates"         
         </script>
 
         <% } %>
