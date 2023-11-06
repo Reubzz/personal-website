@@ -144,21 +144,24 @@
 
             <div class="all-links">
                 <% allLinks.forEach(function(link){ %>
-                    <div class="alink-card">
+                    <div class="alink-card" style="cursor: pointer;" onclick="popupDisplay('<%= link.id %>', '<%= link.slug %>', '<%= link.href %>', '<%= link.qrcode %>', '<%= link.expireAt %>', '<%= link.createdAt %>', '<%= link.createdBy.username %>', '<%= link.createdBy.role %>', false)">
                         <div class="alinks">
-                            <a class="alink-customurl alink" target="_blank" href="https://<%=domain%>/<%=link.slug%>">
+                            <div class="alink-customurl alink" target="_blank" href="https://<%=domain%>/<%=link.slug%>">
                                 <%=domain%>/<%=link.slug%>
-                            </a>
+                            </div>
 
-                            <a href="<%=link.href%>" target="_blank" class="alink-href alink">
+                            <div href="<%=link.href%>" target="_blank" class="alink-href alink">
                                 <%=link.href%>
-                            </a>
+                            </div>
                         </div>
                         <div class="buttons">
-                            <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                            <!-- <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
                                     class="fa-regular fa-eye-slash"></i></button>
                             <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
-                                    class="fa-regular fa-trash-can"></i></button>
+                                    class="fa-regular fa-trash-can"></i></button> -->
+                            <button class="alink-delete" type="button" onclick="popupDisplay('<%= link.id %>', '<%= link.slug %>', '<%= link.href %>', '<%= link.qrcode %>', '<%= link.expireAt %>', '<%= link.createdAt %>', '<%= link.createdBy.username %>', '<%= link.createdBy.role %>', false)">
+                                <i class="fa-solid fa-info"></i>
+                            </button>
                         </div>
                     </div>
                     <% }); %>
@@ -181,10 +184,13 @@
                             </a>
                         </div>
                         <div class="buttons">
-                            <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
+                            <!-- <button class="alink-disable" type="button" onclick="disableLink('<%=link.id%>')"><i
                                     class="fa-regular fa-eye"></i></button>
                             <button class="alink-delete" type="button" onclick="deleteLink('<%=link.id%>')"><i
-                                    class="fa-regular fa-trash-can"></i></button>
+                                    class="fa-regular fa-trash-can"></i></button> -->
+                            <button class="alink-delete" type="button" onclick="popupDisplay('<%= link.id %>', '<%= link.slug %>', '<%= link.href %>', '<%= link.qrcode %>', '<%= link.expireAt %>', '<%= link.createdAt %>', '<%= link.createdBy.username %>', '<%= link.createdBy.role %>', true)">
+                                <i class="fa-solid fa-info"></i>
+                            </button>
                         </div>
                     </div>
                     <% }); %>
@@ -193,7 +199,63 @@
     </section>
 
 
-
+    <section id="popup-wrapper" class="popup-wrapper">
+        <div class="popup">
+            <div class="top-container">
+                <h2 id="short-url" class="shortened-url-name">reubz.io/testurl</h2>
+                <i class="fa-solid fa-xmark fa-xl close-popup-icon" onclick="closepopup()"></i>
+            </div>
+            <hr class="divider-line">
+            <div class="details">
+                <div class="long-url-wrapper">
+                    <h2 class="long-url-title popup-title">Full Long URL</h2>
+                    <div class="long-url-box">
+                        <h3 id="long-url" class="long-url">https://example.com</h3>
+                        <a id="popup-go-button" href="" type="button">
+                            <button class="popup-button">
+                                Go <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="horizontal-content-container">
+                    <div class="details-left">
+                        <div class="qrcode-wrapper">
+                            <h2 class="qrcode-title popup-title">QR Code</h2>
+                            <img id="qrcode" class="qrcode" alt="QR Code"/>
+                        </div>
+                    </div>
+                    <div class="details-right">
+                        <div class="expiry-date-wrapper">
+                            <h2 class="expiry-date-title popup-title">Expiry Date</h2>
+                            <h3 id="expiry-date" class="expiry-date popup-details">10/12/2023 10:12 PM</h3>
+                        </div>
+                        <div class="created-date-wrapper">
+                            <h2 class="created-date-title popup-title">Created Date</h2>
+                            <h3 id="created-date" class="created-date popup-details">02/04/2022 03:45 AM</h3>
+                        </div>
+                        <div class="created-by-wrapper">
+                            <h2 class="created-by-title popup-title">Created By</h2>
+                            <h3 id="created-by" class="created-by popup-details">reubz (basic)</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-action-buttons">
+                    <a id="popup-download-btn" href="" download="">
+                        <button class="download-btn popup-button">Download QR Code <i class="fa-solid fa-download"></i></button>
+                    </a>
+                    <button class="copy-btn popup-button" onclick="copyText()">Copy Short Url <i class="fa-regular fa-copy"></i></button>
+                    <input style="display: none;" type="text" value="https://reubz.io/testurl" id="copy-text">
+                    <button id="popup-disable-btn" class="disable-btn popup-button" type="button">
+                        Disable Link <i class="fa-regular fa-eye-slash"></i>
+                    </button>
+                    <button id="popup-delete-btn" class="delete-btn popup-button" type="button">
+                        Delete Link <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <footer>
