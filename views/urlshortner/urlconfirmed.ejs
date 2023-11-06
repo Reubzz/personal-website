@@ -97,7 +97,7 @@
 
             <div class="confirmed-actionbtns-wrapper"    >
                 <button class="copy-btn" onclick="copyText()">Copy Text <i class="fa-regular fa-copy"></i></button>
-                <input class="" style="display: none;" type="text" value="https://<%=domain%>/<%=data.slug%>" id="myInput">
+                <input class="" style="display: none;" type="text" value="https://<%=domain%>/<%=data.slug%>" id="copy-text">
                 <a href="<%= data.qrcode %>" download="<%= data.slug %>">
                     <button class="download-btn">Download QR Code <i class="fa-solid fa-download"></i></button>
                 </a>
@@ -195,15 +195,6 @@
 
 
     <script src="/js/urlshortner.js"></script>
-    <script>
-        function copyText() {
-            let copyText = document.getElementById("myInput");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(copyText.value);
-            alert("Copied the text: " + copyText.value);
-        }
-    </script>
     <script src="https://kit.fontawesome.com/4d3f484b6f.js" crossorigin="anonymous"></script>
 
 </body>
