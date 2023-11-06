@@ -117,7 +117,6 @@ async function sendMainPage({ req, res, error, user }) {
     })
 }
 async function sendConfirmedPage({ req, res, error, user, id }) {
-    console.log(await shortlinksdb.findOne({ id: id }))
     res.status(200).render('urlshortner/urlconfirmed', {
         data: await shortlinksdb.findOne({ id: id }),
         domain: config.domain,
