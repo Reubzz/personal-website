@@ -65,7 +65,7 @@ router.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
 router.get("/resume", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public", "files", "resume.pdf"))
+    res.sendFile(path.join(__dirname, "../public", "files", "resume-joke.pdf"))
 });
 
 /**
