@@ -96,7 +96,7 @@ body {
 	color: white;
 }
 
-#dialog {
+.dialog {
 	width: max-content;
 	height: max-content;
 	padding: 20px;
@@ -109,7 +109,7 @@ body {
 	border-radius: 10px;
 	border: 1px #232529;
 }
-#dialog button {
+.dialog button {
 	height: max-content;
 	padding: 5px 10px;
 	font-family: "Nunito";
@@ -169,13 +169,13 @@ body {
 		position: absolute;
 		transform: translate(0%, 210%);
 	}
-	#dialog {
+	.dialog {
 		/* width: max-content; */
 		/* height: max-content; */
 		padding: 40px;
 		font-size: 18px;
 	}
-	#dialog button {
+	.dialog button {
 		width: max-content;
 		height: 20%;
 		font-size: 14px;

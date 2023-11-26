@@ -32,14 +32,20 @@
     </div>
 
     <div class="buttons-container">
-      <button class="buttons" id="btn2" onclick="openModal()">YES BBY!</button>
+      <button class="buttons" id="btn2" onclick="openModal('dialog-yes')">YES BBY!</button>
       <button class="buttons" id="btn1">NO</button>
 
     </div>
 
-    <dialog id="dialog">
+    <dialog id="dialog-yes" class="dialog">
       <p>YEYY THANK U, I LOVE U!</p>
-      <button onclick="closeModal()" class="right">Close &lt;3</button>
+      <button onclick="closeModal('dialog-yes')" class="right">Close &lt;3</button>
+    </dialog>
+
+    <!-- No Button Dialog -->
+    <dialog id="dialog-no" class="dialog">
+      <p id="keep-trying-text">Wow! You need to try harder to Reject me!! UwU</p>
+      <button onclick="closeModal('dialog-no')" class="right">Close &lt;3</button>
     </dialog>
   </div>
 
