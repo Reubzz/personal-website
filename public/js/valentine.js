@@ -37,6 +37,7 @@ function openModal(id) {
 
 function closeModal(id) {
     if(noBtnClickCount == 20) {
+        document.getElementById(id).close();
         return window.location.href="https://reubz.io";
     }
     document.getElementById(id).close();
