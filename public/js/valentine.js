@@ -21,7 +21,7 @@ button2.addEventListener('mouseover', function () {
         openModal("dialog-no");
     }
     else if (noBtnClickCount == 20) {
-        keepTryingText.innerHTML = "Okayy! Fine! Bye"
+        keepTryingText.innerHTML = "Okayy Fine! Bye!"
         openModal("dialog-no");
     }
 });
