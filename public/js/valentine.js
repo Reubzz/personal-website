@@ -26,10 +26,6 @@ button2.addEventListener('mouseover', function () {
     }
 });
 
-button2.addEventListener('click', function () {
-    // this.style.left = `${Math.random() * 80}%`;
-    // this.style.top = `${Math.random() * 80}%`;
-});
 
 function openModal(id) {
     document.getElementById(id).showModal();

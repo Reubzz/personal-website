@@ -94,6 +94,7 @@ body {
 	transform: translate(60%, 0%);
 	background-color: #ed4245;
 	color: white;
+	transition: all 0.5s;
 }
 
 .dialog {
