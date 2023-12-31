@@ -23,6 +23,7 @@ button2.addEventListener('mouseover', function () {
     else if (noBtnClickCount == 20) {
         keepTryingText.innerHTML = "Okayy Fine! Bye!"
         openModal("dialog-no");
+        noBtnClickCount = 0;
     }
 });
 
@@ -48,6 +49,7 @@ button2.addEventListener('click', function () {
     else if (noBtnClickCount == 20) {
         keepTryingText.innerHTML = "Okayy Fine! Bye!"
         openModal("dialog-no");
+        noBtnClickCount = 0;
     }
 });
 
