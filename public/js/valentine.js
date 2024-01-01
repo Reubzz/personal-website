@@ -31,37 +31,48 @@ button2.addEventListener('click', function () {
     this.style.top = `${Math.random() * 70}%`;
 
     noBtnClickCount++ 
-    const keepTryingText = document.getElementById('keep-trying-text');
+    // const keepTryingText = document.getElementById('keep-trying-text');
 
     if(noBtnClickCount == 5) {
-        keepTryingText.innerHTML = "Hey you're being too mean now! Say Yes!"
-        openModal("dialog-no");
+        openModal("dialog-no", { 
+            textId: 'keep-trying-text', 
+            text: "hey you're being to mean now! Say YES!!"
+        });
     }
     else if (noBtnClickCount == 10) {
-        keepTryingText.innerHTML = "Wow! You need to try harder to Reject me!! UwU"
-        openModal("dialog-no");
+        openModal("dialog-no", { 
+            textId: 'keep-trying-text', 
+            text: "Wow! You need to try harder to Reject me!! UwU"
+        });
     }
     else if (noBtnClickCount == 15) {
-        keepTryingText.innerHTML = "Damn! You're really hell bent on saying No!!"
-        openModal("dialog-no");
+        openModal("dialog-no", { 
+            textId: 'keep-trying-text', 
+            text: "Damn! You're really hell bent on saying No!!"
+        });
     }
     else if (noBtnClickCount == 20) {
-        keepTryingText.innerHTML = "Okayy Fine! Bye!"
-        openModal("dialog-no");
+        openModal("dialog-no", { 
+            textId: 'keep-trying-text', 
+            text: "Okayy Fine! Bye!"
+        });
     }
 });
 
-function openModal(id) {
-    document.getElementById(id).showModal();
+function openModal(modalId, options = {}) {
+    if (options.textId) {
+        document.getElementById(options.textId).innerHTML =  options.text;
+    }
+    document.getElementById(modalId).showModal();
 }
 
-function closeModal(id) {
+function closeModal(modalId) {
     if(noBtnClickCount == 20) {
-        document.getElementById(id).close();
+        document.getElementById(modalId).close();
         noBtnClickCount = 0;
         return window.location.href="https://reubz.io";
     }
-    document.getElementById(id).close();
+    document.getElementById(modalId).close();
 }
 
 

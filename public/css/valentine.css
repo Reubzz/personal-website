@@ -110,7 +110,7 @@ body {
 	border-radius: 10px;
 	border: 1px #232529;
 }
-.dialog button {
+.dialog a {
 	height: max-content;
 	padding: 5px 10px;
 	font-family: "Nunito";
