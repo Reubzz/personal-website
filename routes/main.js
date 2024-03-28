@@ -42,6 +42,9 @@ router.get("/honestly", (req, res) => {
 router.get("/atu", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages", "fun pages", "atu", "index.html"))
 })
+router.get('/evita', (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "fun pages", "evita", "index.html"))
+})
 
 /**
  * Static Urls
