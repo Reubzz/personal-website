@@ -96,6 +96,10 @@ body {
   width: 100%;
   margin: 10px 0;
 }
+#form-container #form .form-inputs-container .submit-btn .button:hover {
+  background-color: rgba(50, 184, 50, 0.7882352941);
+  cursor: pointer;
+}
 #form-container .other-links {
   display: flex;
   justify-content: center;
@@ -116,4 +120,4 @@ body {
   #form-container {
     width: 90%;
   }
-}/*# sourceMappingURL=auth-page.css.map */
+}

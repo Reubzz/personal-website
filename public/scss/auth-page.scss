@@ -14,6 +14,7 @@ $blue: #147efb;
 $blueLight: #5588ff;
 $red: #e95252a1;
 $green: #54de54c9;
+$greenDark: #32b832c9;
 $light: 300;
 $regular: 400;
 $medium: 500;
@@ -126,6 +127,10 @@ body {
                     color: $white;
                     width: 100%;
                     margin: 10px 0;
+                    &:hover {
+                        background-color: $greenDark;
+                        cursor: pointer;
+                    }
                 }
             }
         }

@@ -90,9 +90,9 @@ main section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 25px;
   align-items: flex-start;
   gap: 10px;
+  padding: 10px 25px;
 }
 #landing-page div .left h1 {
   font-size: 4rem;
@@ -202,15 +202,11 @@ main section {
   background-color: rgba(217, 217, 217, 0.1960784314);
   width: 350px;
   height: auto;
-  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 #introduction .intro-left .intro-img img:hover {
-  -webkit-transform: scale(1.1);
   transform: scale(1.1), translate(-5px, -5px);
-  -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }
 #introduction .intro-right {
@@ -404,6 +400,7 @@ main section {
 #projects .projs-button a {
   background-color: rgba(217, 217, 217, 0.1960784314);
   border: 2px solid rgba(217, 217, 217, 0.6196078431);
+  width: -moz-max-content;
   width: max-content;
   padding: 10px;
   border-radius: 5px;
@@ -488,4 +485,4 @@ main section {
   #landing-page .left h1 {
     font-size: 2rem !important;
   }
-}/*# sourceMappingURL=home.css.map */
+}
