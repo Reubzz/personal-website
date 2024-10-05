@@ -76,3 +76,17 @@ function copyText() {
     navigator.clipboard.writeText(copyText.value);
     alert("Copied the text: " + copyText.value);
 }
+
+const openWindow = (pageUrl) => {
+    setCookie('redirectToUrl', window.location, 1);
+    window.location.replace(pageUrl)
+}
+function setCookie(name, value, hours) {
+    let expires = "";
+    if (hours) {
+        let date = new Date();
+        date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); // 1 day 
+        expires = `; expires=${date.toUTCString()}`;
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/; sameSite=Lax";
+}

@@ -56,7 +56,7 @@
                     <li><a href="#contact" class="navbar-item"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
                     <% if(user.id==undefined) {%>
                         <li>
-                            <a href="/login" class="navbar-item"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                            <a class="navbar-item" onclick="openWindow('/login')"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                         </li>
                     <% } else { %>
                         <li><a id="logout-btn" onmouseover="logoutHover()"

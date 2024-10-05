@@ -75,9 +75,15 @@ router.get("/resume", (req, res) => {
  * User Auth Flow urls
  */
 router.get("/register", (req, res) => {
+    if (req.cookies.jwt) {
+        return res.redirect('back')
+    }
     res.sendFile(path.join(__dirname, "../pages/user control/register.html"))
 })
 router.get("/login", (req, res) => {
+    if (req.cookies.jwt) {
+        return res.redirect('back')
+    }
     res.sendFile(path.join(__dirname, "../pages/user control/login.html"))
 })
 router.get("/logout", (req, res) => {
