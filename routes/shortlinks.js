@@ -42,7 +42,6 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
     }
 
     const newID = getUniqueId()
-    console.log(req.body.expiryTime)
     const newEntry = new shortlinksdb({
         id: newID,
         slug: req.body.slug,
@@ -56,7 +55,6 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
         },
         qrcode: await QRCode.toDataURL(req.body.href),
     })
-    console.log(typeof req.body.expiryTime)
     if (req.body.expiryTime != "null") newEntry.expireAt = new Date(Date.now() + req.body.expiryTime * 60 * 1000);
     await newEntry
         .save()
