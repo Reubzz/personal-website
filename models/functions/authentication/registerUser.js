@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid')
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
 const jwtSecret = process.env.JWT
+const bcrypt = require('bcrypt');
 
 // Config file
 const { loginMaxAge } = require('../../../config.json')
@@ -79,7 +80,7 @@ exports.registerUser = async (req, res, next) => {
         const id = uuidv4();
         await User.create({
             username: username,
-            password: password,
+            password: await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS)),
             email: email,
             id: id,
         }).then((user) => {

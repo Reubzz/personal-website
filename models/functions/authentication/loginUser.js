@@ -22,7 +22,7 @@
 const User = require('../../schemas/userAuth')
 const jwtSecret = process.env.JWT
 const jwt = require('jsonwebtoken')
-
+const bcrypt = require('bcrypt');
 
 // Config File
 const { loginMaxAge } = require('../../../config.json')
@@ -88,12 +88,13 @@ exports.loginUser = async (req, res, next) => {
         // Compare password
 
         // password incorrect
-        if (check1.password != password) {
+        const match = await bcrypt.compare(password, check1.password)
+        if (!match) {
             return res.status(401).json({ error: error[102], status: status[201] })
         }
 
         // All good - username + password correct
-        if (check1.password == password) {
+        if (match) {
             // Generate JWT
             const token = jwt.sign(
                 { id: check1.id, username: check1.username, role: check1.role },
