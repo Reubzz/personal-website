@@ -1,8 +1,3 @@
-Make Projects directory
-    - make a seperate ejs page for each project
-
--------
-
 Create User Login Flow 
     - Password Encryption (hashing with salt)
 
