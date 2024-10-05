@@ -118,12 +118,12 @@
                 <div class="spacebar"></div>
                 <label class="labels">Expires In: </label>
                 <div class="radio">
-                    <input label="12 Hours" type="radio" id="12-Hours" name="expiryTime" value="expireAt12H" checked>
-                    <input label="1 Day" type="radio" id="1-Day" name="expiryTime" value="expireAt1D">
-                    <input label="3 Days" type="radio" id="3-Day" name="expiryTime" value="expireAt3D">
-                    <input label="1 Week" type="radio" id="1-Week" name="expiryTime" value="expireAt1W">
-                    <input label="2 Weeks" type="radio" id="2-Week" name="expiryTime" value="expireAt2W">
-                    <input label="1 Month" type="radio" id="1-Month" name="expiryTime" value="expireAt1M">
+                    <input label="12 Hours" type="radio" id="12-Hours" name="expiryTime" value="720" checked>
+                    <input label="1 Day" type="radio" id="1-Day" name="expiryTime" value="1440">
+                    <input label="3 Days" type="radio" id="3-Day" name="expiryTime" value="4320">
+                    <input label="1 Week" type="radio" id="1-Week" name="expiryTime" value="10080">
+                    <input label="2 Weeks" type="radio" id="2-Week" name="expiryTime" value="20160">
+                    <input label="1 Month" type="radio" id="1-Month" name="expiryTime" value="43800">
                     <input label="Never" type="radio" id="null" name="expiryTime" value="null">
                 </div>
                 <br>
@@ -211,7 +211,7 @@
                     <h2 class="long-url-title popup-title">Full Long URL</h2>
                     <div class="long-url-box">
                         <h3 id="long-url" class="long-url">https://example.com</h3>
-                        <a id="popup-go-button" href="" type="button">
+                        <a id="popup-go-button" href="" type="button" target="_blank">
                             <button class="popup-button">
                                 Go <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </button>
@@ -226,13 +226,13 @@
                         </div>
                     </div>
                     <div class="details-right">
-                        <div class="expiry-date-wrapper">
-                            <h2 class="expiry-date-title popup-title">Expiry Date</h2>
-                            <h3 id="expiry-date" class="expiry-date popup-details">10/12/2023 10:12 PM</h3>
-                        </div>
                         <div class="created-date-wrapper">
                             <h2 class="created-date-title popup-title">Created Date</h2>
                             <h3 id="created-date" class="created-date popup-details">02/04/2022 03:45 AM</h3>
+                        </div>
+                        <div class="expiry-date-wrapper">
+                            <h2 class="expiry-date-title popup-title">Expiry Date</h2>
+                            <h3 id="expiry-date" class="expiry-date popup-details">10/12/2023 10:12 PM</h3>
                         </div>
                         <div class="created-by-wrapper">
                             <h2 class="created-by-title popup-title">Created By</h2>

@@ -40,8 +40,8 @@ function popupDisplay(id, slug, href, qr, expireAt, createdAt, username, role, d
     document.getElementById('short-url').innerHTML = `https://reubz.io/${slug}`;
     document.getElementById('long-url').innerHTML = href;
     document.getElementById('qrcode').src = qr;
-    document.getElementById('expiry-date').innerHTML = 'Upcoming Feature';
-    document.getElementById('created-date').innerHTML = createdAt;
+    document.getElementById('expiry-date').innerHTML = expireAt ? formatDate(expireAt) : "Never";
+    document.getElementById('created-date').innerHTML = formatDate(createdAt);
     document.getElementById('created-by').innerHTML = `${username} (${role})`;
     document.getElementById('popup-download-btn').href = qr;
     document.getElementById('popup-go-button').href = href;
@@ -60,6 +60,9 @@ function popupDisplay(id, slug, href, qr, expireAt, createdAt, username, role, d
     }
 }
 
+function formatDate(date){
+    return new Date(date).toLocaleString('en-GB', { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(',', ''); 
+}
 window.onclick = function(event) {
     if (event.target == document.getElementById('popup-wrapper')) {
         document.getElementById('popup-wrapper').style.display = "none";

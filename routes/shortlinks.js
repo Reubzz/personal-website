@@ -42,20 +42,22 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
     }
 
     const newID = getUniqueId()
+    console.log(req.body.expiryTime)
     const newEntry = new shortlinksdb({
         id: newID,
         slug: req.body.slug,
         href: `${req.body.href}`,
         disabled: false,
         createdAt: new Date().getTime(),
-        [req.body.expiryTime]: new Date(),
         createdBy: {
             id: res.locals.userId,
             username: res.locals.userName,
             role: res.locals.userRole
         },
-        qrcode: await QRCode.toDataURL(req.body.href)
+        qrcode: await QRCode.toDataURL(req.body.href),
     })
+    console.log(typeof req.body.expiryTime)
+    if (req.body.expiryTime != "null") newEntry.expireAt = new Date(Date.now() + req.body.expiryTime * 60 * 1000);
     await newEntry
         .save()
         .catch((e) => console.log(e))
