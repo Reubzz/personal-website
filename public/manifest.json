@@ -1,0 +1,42 @@
+{
+    "id": "reubz.io",
+    "name": "Reubz.io",
+    "short_name": "Reubz.io",
+    "theme_color": "#147efb",
+    "background_color": "#252525",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "https://reubz.io",
+    "description": "Personal Portfolio Website for Reuben J George.",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://reubz.io/assets/images/pfp.webp",
+            "sizes": "600x600"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Url Shorner",
+            "url": "/urlshortner",
+            "description": "Shorten your long urls to a short one with custom names, on reubz.io domain.",
+            "icons": [
+                {
+                    "src": "https://reubz.io/assets/images/url-shortner-icon.png",
+                    "sizes": "111x111"
+                }
+            ]
+        },
+        {
+            "name": "Resume",
+            "url": "/resume",
+            "description": "Reuben George's CV/Resume.",
+            "icons": [
+                {
+                    "src": "https://reubz.io/assets/images/resume.png",
+                    "sizes": "512x512"
+                }
+            ]
+        }
+    ]
+}
