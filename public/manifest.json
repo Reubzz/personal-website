@@ -11,42 +11,42 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "https://reubz.io/assets/icons/pfp/32.png",
+            "src": "https://reubz.io/Assets/icons/pfp/32.png",
             "sizes": "32x32",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/60.png",
+            "src": "https://reubz.io/Assets/icons/pfp/60.png",
             "sizes": "60x60",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/128.png",
+            "src": "https://reubz.io/Assets/icons/pfp/128.png",
             "sizes": "128x128",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/144.png",
+            "src": "https://reubz.io/Assets/icons/pfp/144.png",
             "sizes": "144x144",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/192.png",
+            "src": "https://reubz.io/Assets/icons/pfp/192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/256.png",
+            "src": "https://reubz.io/Assets/icons/pfp/256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/512.png",
+            "src": "https://reubz.io/Assets/icons/pfp/512.png",
             "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "https://reubz.io/assets/icons/pfp/1024.png",
+            "src": "https://reubz.io/Assets/icons/pfp/1024.png",
             "sizes": "1024x1024",
             "type": "image/png"
         }
@@ -58,43 +58,13 @@
             "description": "Shorten your long urls to a short one with custom names, on reubz.io domain.",
             "icons": [
                 {
-                    "src": "https://reubz.io/assets/icons/urlshortner/32.png",
-                    "sizes": "32x32",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/urlshortner/60.png",
-                    "sizes": "60x60",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/urlshortner/128.png",
-                    "sizes": "128x128",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/urlshortner/144.png",
+                    "src": "https://reubz.io/Assets/icons/urlshortner/144.png",
                     "sizes": "144x144",
                     "type": "image/png"
                 },
                 {
-                    "src": "https://reubz.io/assets/icons/urlshortner/192.png",
+                    "src": "https://reubz.io/Assets/icons/urlshortner/192.png",
                     "sizes": "192x192",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/urlshortner/256.png",
-                    "sizes": "256x256",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/urlshortner/512.png",
-                    "sizes": "512x512",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/urlshortner/1024.png",
-                    "sizes": "1024x1024",
                     "type": "image/png"
                 }
             ]
@@ -105,43 +75,13 @@
             "description": "Reuben George's CV/Resume.",
             "icons": [
                 {
-                    "src": "https://reubz.io/assets/icons/resume/32.png",
-                    "sizes": "32x32",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/resume/60.png",
-                    "sizes": "60x60",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/resume/128.png",
-                    "sizes": "128x128",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/resume/144.png",
+                    "src": "https://reubz.io/Assets/icons/resume/144.png",
                     "sizes": "144x144",
                     "type": "image/png"
                 },
                 {
-                    "src": "https://reubz.io/assets/icons/resume/192.png",
+                    "src": "https://reubz.io/Assets/icons/resume/192.png",
                     "sizes": "192x192",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/resume/256.png",
-                    "sizes": "256x256",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/resume/512.png",
-                    "sizes": "512x512",
-                    "type": "image/png"
-                },
-                {
-                    "src": "https://reubz.io/assets/icons/resume/1024.png",
-                    "sizes": "1024x1024",
                     "type": "image/png"
                 }
             ]
