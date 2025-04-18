@@ -13,4 +13,12 @@ router.get('/atiya', (req, res) => {
     res.sendFile(path.join(__dirname, "../pages/archive/atiya/atiya.html"))
 })
 
+router.get('/evita', (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "archive", "evita", "evita.html"))
+})
+
+router.get("/atu", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "archive", "atiya", "atu.html"))
+})
+
 module.exports = router;
