@@ -12,13 +12,13 @@ const projectsdb = require('../models/schemas/projects')
 
 router.get("/", async (req, res) => {
     res.status(200).render("home/home", {
-        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }),
+        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }).lean(),
         aboutMe: await aboutMedb.findOne()
     })
 });
 router.get("/home", async (req, res) => {
     res.status(200).render("home/home", {
-        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }),
+        projects: await projectsdb.find({ display: "show" }).sort({ projectId: 1 }).lean(),
         aboutMe: await aboutMedb.findOne()
     })
 });

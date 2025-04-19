@@ -193,53 +193,63 @@
 
             <section id="projects">
                 <h1 class="title">Projects</h1>
-
                 <div id="projects-gallery" class="projects-gallery">
-
                     <% projects.forEach(function(project){ %>
 
                         <% if(project.projectId % 2 !=0){ %>
-                            <div class="project project-reverse" onmouseover="scrollImage(this)"
-                                onmouseout="returnImage(this)">
+                            <div class="project project-reverse" onmouseover="scrollImage(this)" onmouseout="returnImage(this)">
 
-                                <% } else { %>
-                                    <div class="project" onmouseover="scrollImage(this)" onmouseout="returnImage(this)">
-                                        <% }%>
+                        <% } else { %>
+                            <div class="project" onmouseover="scrollImage(this)" onmouseout="returnImage(this)">
+                        <% }%>
 
-                                            <div class="proj-desc">
-                                                <div>
-                                                    <h2 class="project-title">
-                                                        <%= project.name %>
-                                                    </h2>
-                                                    <p class="project-description">
-                                                        <%= project.description %>
-                                                    </p>
-                                                </div>
-                                                <div class="proj-btns">
-                                                    <% if(project.code) { %>
-                                                        <a target="_blank" href="<%=project.code%>">Code <i
-                                                                class="fa-brands fa-github"></i></a>
-                                                        <% } %>
-                                                            <!--  -->
-                                                            <% if(project.live) { %>
-                                                                <a target="_blank" href="<%=project.live%>">Live Demo <i
-                                                                        class="fa-solid fa-link"></i></a>
-                                                                <% } %>
-
-                                                </div>
+                                <div class="proj-desc">
+                                    <div>
+                                        <h2 class="project-title">
+                                            <%= project.name %>
+                                        </h2>
+                                        <% if(project.techStack) { %>
+                                            <div class="project-tech-stack-container">
+                                                <% project.techStack.forEach(function(tech) { %>
+                                                    <span class="project-tech-stack"><%= tech %></span>
+                                                <% }) %>
                                             </div>
-                                            <div class="proj-img">
-                                                <div>
-                                                    <img src="<%= project.img %>" alt="Project Image" loading="lazy">
-                                                </div>
-                                            </div>
+                                        <% } %>
+                                        <br>
+                                        <p class="project-description">
+                                            <%= project.description.substring(0, 200) %>
+                                            <span id="dots-<%=project._id%>">...</span>
+                                            <span id="more-text-<%=project._id%>" style="display: none;"><%= project.description.substring(200) %></span>
+                                            <button onclick="toggleText('<%=project._id%>')" id="toggle-btn-<%=project._id%>">Read More</button>
+                                          </p>
+                                          
                                     </div>
-                                    <% }) %>
+                                    <div class="proj-btns">
+                                        <% if(project.code) { %>
+                                            <a target="_blank" href="<%=project.code%>">Code <i
+                                                    class="fa-brands fa-github"></i></a>
+                                            <% } %>
+                                                <!--  -->
+                                                <% if(project.live) { %>
+                                                    <a target="_blank" href="<%=project.live%>">Live Demo <i
+                                                            class="fa-solid fa-link"></i></a>
+                                                    <% } %>
+
+                                    </div>
+                                </div>
+                                <div class="proj-img">
+                                    <div>
+                                        <img src="<%= project.img %>" alt="Project Image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                    <% }) %>
                             </div>
 
                             <div class="projs-button">
                                 <a href="/projects">Show More</a>
                             </div>
+                </div>
             </section>
         </main>
 
