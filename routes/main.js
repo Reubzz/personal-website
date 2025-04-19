@@ -61,6 +61,9 @@ router.get("/github", (req, res) => {
 router.get("/linkedin", (req, res) => {
     res.redirect(config.socials.linkedin);
 });
+router.get("/youtube", (req, res) => {
+    res.redirect(config.socials.youtube);
+});
 router.get("/resume", (req, res) => {
     res.sendFile(path.join(__dirname, "../public", "files", "resume.pdf"))
 });
