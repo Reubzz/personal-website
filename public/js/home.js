@@ -27,3 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
         HomepageLoader.style.display = 'none'
     }, 1000 * 2);
 });
+function toggleText(projId) {
+    const dots = document.getElementById(`dots-${projId}`);
+    const moreText = document.getElementById(`more-text-${projId}`);
+    const btnText = document.getElementById(`toggle-btn-${projId}`);
+
+    const isExpanded = moreText.style.display === "inline";
+
+    dots.style.display = isExpanded ? "inline" : "none";
+    moreText.style.display = isExpanded ? "none" : "inline";
+    btnText.innerText = isExpanded ? "Read More" : "Read Less";
+}
