@@ -27,24 +27,31 @@ router.get('/', authCheck, async (req, res) => {
 
 router.post('/', urlEncodedParser, authCheck, async (req, res) => {
 
-    const initialCheck = await shortlinksdb.findOne({ slug: req.body.slug })
+    const slug = req.body.slug ? req.body.slug : getUniqueId(5);
+
+    const IOS_Shortcut = req.headers['x-client-type'];
+    const initialCheck = await shortlinksdb.findOne({ slug: slug })
+
     if (initialCheck) {
-        return await sendMainPage({
-            req: req,
-            res: res,
-            error: 1,
-            user: {
-                id: res.locals.userId,
-                role: res.locals.userRole,
-                username: res.locals.userName
-            }
-        })
+        if (IOS_Shortcut) {
+            return res.send("This URL Slug is already taken. Please use a different Unique Slug");
+        } else {
+            return await sendMainPage({
+                req: req,
+                res: res,
+                error: 1,
+                user: {
+                    id: res.locals.userId,
+                    role: res.locals.userRole,
+                    username: res.locals.userName
+                }
+            })
+        }
     }
 
-    const newID = getUniqueId()
     const newEntry = new shortlinksdb({
-        id: newID,
-        slug: req.body.slug,
+        id: getUniqueId(),
+        slug: slug,
         href: `${req.body.href}`,
         disabled: false,
         createdAt: new Date().getTime(),
@@ -53,24 +60,29 @@ router.post('/', urlEncodedParser, authCheck, async (req, res) => {
             username: res.locals.userName,
             role: res.locals.userRole
         },
-        qrcode: await QRCode.toDataURL(req.body.href),
+        qrcode: await QRCode.toDataURL(`${req.body.href}`),
     })
+
     if (req.body.expiryTime != "null") newEntry.expireAt = new Date(Date.now() + req.body.expiryTime * 60 * 1000);
+    
     await newEntry
         .save()
         .catch((e) => console.log(e))
-        .then(async () => {
-            await sendConfirmedPage({
-                req: req,
-                res: res,
-                error: 0,
-                user: {
-                    id: res.locals.userId,
-                    role: res.locals.userRole,
-                    username: res.locals.userName
-                },
-                id: newID
-            })
+        .then(async (url) => {
+            if (IOS_Shortcut) res.send(`https://reubz.io/${url.slug}`)
+            else {
+                await sendConfirmedPage({
+                    req: req,
+                    res: res,
+                    error: 0,
+                    user: {
+                        id: res.locals.userId,
+                        role: res.locals.userRole,
+                        username: res.locals.userName
+                    },
+                    id: url.id
+                })
+            }
         })
 })
 
@@ -98,8 +110,9 @@ router.get('/disable/:id', async (req, res) => {
  * * to avoid this it is placed in routes/main.js, hence now the link works as intended --> reubz.io/<slug_here>
  */
 
-function getUniqueId() {
-    return Math.random().toString(36).slice(2);
+function getUniqueId(length) {
+    const id = Math.random().toString(36).slice(2);
+    return length ? id.slice(0, length) : id;
 }
 
 async function sendMainPage({ req, res, error, user }) {
