@@ -64,8 +64,16 @@ router.get("/linkedin", (req, res) => {
 router.get("/youtube", (req, res) => {
     res.redirect(config.socials.youtube);
 });
-router.get("/resume", (req, res) => {
+router.get("/resume-final", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "files", "Reuben_Resume_Final.pdf"))
+});
+
+router.get("/resume-old", (req, res) => {
     res.sendFile(path.join(__dirname, "../public", "files", "resume.pdf"))
+});
+
+router.get("/resume", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "files", "Reuben_Resume222.pdf"))
 });
 
 /**
